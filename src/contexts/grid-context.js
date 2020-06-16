@@ -13,7 +13,7 @@ export const GridContextProvider = (props) => {
   const service = new UserService();
 
   const updateGrid = async (patternId) => {
-    let result = await service
+    await service
       .loadPattern(patternId)
       .then((response) => {
         // console.log(response.data)

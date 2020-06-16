@@ -3,8 +3,7 @@ import axios from "axios";
 class AuthService {
   constructor() {
     this.service = axios.create({
-      baseURL: "https://drumgrid.herokuapp.com/",
-      // baseURL: "http://localhost:5000",
+      baseURL: process.env.REACT_APP_BASE_URL,
       withCredentials: true,
       validateStatus: () => true,
     });
