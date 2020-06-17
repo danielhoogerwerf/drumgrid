@@ -290,9 +290,12 @@
 }
 
 .loginbox-password-reset-btn button:nth-child(1) {
+  position: absolute;
   font-size: 12px;
   width: 62px;
   height: 30px;
+  right: 25px;
+  bottom: 35%;
 
 }
 

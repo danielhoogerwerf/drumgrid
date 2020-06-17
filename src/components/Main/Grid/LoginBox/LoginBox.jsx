@@ -47,7 +47,6 @@ export default function LoginBox(props) {
 
   const handleSignupFormSubmit = (event) => {
     event.preventDefault();
-    console.log("signupp");
     let error = false;
     setWrongUserName(false);
     setWrongPassword(false);
@@ -56,25 +55,21 @@ export default function LoginBox(props) {
     // Check for empty fields
     if (!username) {
       error = true;
-      setWrongUserName(true);
+      setWrongUserName("Please fill something in");
     }
     if (!password) {
       error = true;
-      setWrongPassword(true);
+      setWrongPassword("Please fill something in");
     }
     if (!email) {
       error = true;
-      setWrongEmail(true);
+      setWrongEmail("Please fill something in");
     }
-
-    console.log(wrongUserName, wrongPassword, wrongEmail);
-    console.log(error);
 
     if (!error) {
       service
         .signup(username, password, email)
         .then((response) => {
-          console.log(response);
           if (response.error === "The username already exists") {
             setWrongUserName("That name already exists");
             return;
