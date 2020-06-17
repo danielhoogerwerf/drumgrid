@@ -11,8 +11,13 @@ export default function Profile() {
   const [showProfile, setShowProfile] = useState(false);
   const context = useContext(AuthContext);
 
+  // useEffect(() => {
+  //   if (!context.appUser) {
+  //     context.checkLogin();
+  //   }
+  // }, [context.appUser, context]);
+
   const showProfileFrame = () => {
-    console.log("show profile frame");
     setShowProfile(!showProfile);
   };
 
@@ -29,7 +34,7 @@ export default function Profile() {
         <div className="navbar-profile-showcontentbox">
           <div className="navbar-profile-showcontentbox-content-inside">
             {!context.appUser ? (
-              <LoginBox />
+              <LoginBox close={showProfileFrame} />
             ) : (
               <span className="navbar-profile-showcontentbox-content-inside-pads">
                 <div className="navbar-profile-showcontentbox-content-inside-close">
@@ -47,13 +52,14 @@ export default function Profile() {
                   </span>
                 </div>
                 <div className="navbar-profile-showcontentbox-content-inside-fat">
-                  <p>PASSWORD</p>
-                  <span className="navbar-profile-showcontentbox-content-inside-normal">●●●●●●●●●●</span>
+                  <p>EMAIL</p>
+                  <span className="navbar-profile-showcontentbox-content-inside-normal">{context.appUser.email}</span>
                   <span className="navbar-profile-showcontentbox-content-inside-button">
                     <button>UPDATE</button>
                   </span>
                 </div>
                 <button onClick={() => signOut()}>
+                  <span className="navbar-profile-showcontentbox-content-inside-pads-btnspan">Logout</span>{"  "}
                   <FontAwesomeIcon icon={faSignOutAlt} />
                 </button>
               </span>

@@ -5,7 +5,6 @@ export default function AboutApp() {
   const [showAbout, setShowAbout] = useState(false);
 
   const showAboutFrame = () => {
-    console.log("show about");
     setShowAbout(!showAbout);
   };
 
@@ -22,11 +21,6 @@ export default function AboutApp() {
             <br />
             <p>
               This app is a graduation project for the web development bootcamp from IronHack.
-              {/* <img
-                  className="navbar-aboutapp-showcontentbox-content-ih"
-                  src="/images/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png"
-                  alt="ironhack"
-                /> */}
             </p>
             <br />
             <p className="navbar-aboutapp-showcontentbox-content-textborder">MANUAL</p>

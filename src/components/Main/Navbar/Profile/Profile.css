@@ -24,7 +24,6 @@
 }
 
 .navbar-profile-showcontentbox button {
-  width: 70px;
   height: 30px;
   font-weight: 600;
   background-color: #302e2e;
@@ -50,6 +49,10 @@
 
 .navbar-profile-showcontentbox-content-inside-pads {
   padding: 15px 0 0 20px;
+}
+
+.navbar-profile-showcontentbox-content-inside-pads-btnspan {
+  font-size: 10px;
 }
 
 .navbar-profile-showcontentbox-content-inside-pads button {
@@ -150,3 +153,4 @@
   background-color: transparent;
   color: #e4a400;
 }
+

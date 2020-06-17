@@ -108,14 +108,13 @@
 }
 
 .loginbox-form-text {
-    margin: 2px 25px 0 0px;
+  margin: 2px 25px 0 0px;
   padding: 0;
   width: 75px;
   display: inline-block;
 }
 
 .loginbox-form-header input {
-
   height: 23px;
   padding: 0 0 0 2px;
   outline: 0;
@@ -123,8 +122,8 @@
   font-weight: 300;
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
-  /* border-bottom: 1px dotted #6A706C; */
-  background-color: #262526;
+  /* background-color: #262526; */
+  background-color: rgba(71, 75, 73, 1);
   border-radius: 1px;
   width: 150px;
   color: white;
@@ -172,9 +171,129 @@
   color: #724dba;
 }
 
-.loginbox-form-error {
-	-webkit-animation: loginbox-form-error 0.5s both;
-	        animation: loginbox-form-error 0.5s both;
+.loginbox-signup-container {
+  position: absolute;
+  right: 0;
+  width: 796px;
+  min-width: 796px;
+  max-width: 796px;
+  height: 100%;
+  z-index: 20;
+  background-color: rgba(48, 46, 46, 1);
+}
+
+.loginbox-signup-container form {
+  height: 100%;
+}
+
+.loginbox-signup-container-inside {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+
+  padding-right: 120px;
+}
+
+.loginbox-signup-container-inside-form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.loginbox-signup-container-inside-form input {
+  margin-top: 10px;
+  height: 23px;
+  padding: 0 0 0 2px;
+  outline: 0;
+  border: 0;
+  font-weight: 300;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  background-color: rgba(71, 75, 73, 1);
+  border-radius: 1px;
+  width: 160px;
+  color: white;
+}
+
+.loginbox-signup-container-inside-form input[type="password"] {
+  font-family: caption;
+  font-size: 20px;
+}
+
+.loginbox-signup-container-inside-form span {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+
+.loginbox-signup-container-inside-button button:nth-child(1) {
+  position: absolute;
+  bottom: 35px;
+  /* margin-bottom: 15px; */
+  font-size: 16px;
+  width: 85px;
+  right: 35px;
+  height: 45px;
+  border-radius: 3px;
+  font-weight: 600;
+  background-color: #474b49;
+}
+
+.loginbox-signup-container-inside-button button:nth-child(1):hover {
+  background-color: #e4a400;
+  color: white;
+}
+
+.loginbox-signup-container-inside-button button:nth-child(1):active {
+  border: 5px solid #e4a400;
+  background-color: #302e2e;
+  color: white;
+}
+
+.loginbox-signup-container-inside-completed {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  padding: 0;
+}
+
+.loginbox-signup-container-inside-completed-icon {
+  font-size: 32px;
+}
+
+.loginbox-signup-container-inside-completed-softer {
+  font-weight: 400;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.loginbox-password-reset {
+  width: 100%;
+    padding-right: 100px;
+    box-sizing: border-box;
+}
+
+.loginbox-password-reset-softer {
+  font-weight: 400;
+  font-size: 12px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.loginbox-password-reset-btn button:nth-child(1) {
+  font-size: 12px;
+  width: 62px;
+  height: 30px;
+
 }
 
 /* ----------------------------------------------
@@ -183,23 +302,143 @@
  * See http://animista.net/license for more info. 
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
+
+.loginbox-form-warning {
+  -webkit-animation: loginbox-form-warning 0.5s both;
+  animation: loginbox-form-warning 0.5s both;
+}
+
+@-webkit-keyframes loginbox-form-warning {
+  0% {
+    -webkit-box-shadow: 0 0 0 rgba(228, 22, 0, 0.35);
+    box-shadow: 0 0 0 rgba(228, 22, 0, 0.35);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 5px rgba(255, 207, 56, 1);
+    box-shadow: 0 0 5px rgba(255, 207, 56, 1);
+  }
+}
+@keyframes loginbox-form-warning {
+  0% {
+    -webkit-box-shadow: 0 0 0 rgba(228, 22, 0, 0.35);
+    box-shadow: 0 0 0 rgba(228, 22, 0, 0.35);
+  }
+  100% {
+    -webkit-box-shadow: 0 0px 5px rgba(255, 207, 56, 1);
+    box-shadow: 0 0px 5px rgba(255, 207, 56, 1);
+  }
+}
+
+.loginbox-form-error {
+  -webkit-animation: loginbox-form-error 0.5s both;
+  animation: loginbox-form-error 0.5s both;
+}
+
 @-webkit-keyframes loginbox-form-error {
   0% {
     -webkit-box-shadow: 0 0 0 rgba(228, 22, 0, 0.35);
-            box-shadow: 0 0 0 rgba(228, 22, 0, 0.35);
+    box-shadow: 0 0 0 rgba(228, 22, 0, 0.35);
   }
   100% {
-    -webkit-box-shadow: 0 0 5px rgba(228, 22, 0, 1.0);
-            box-shadow: 0 0 5px rgba(228, 22, 0, 1.0);
+    -webkit-box-shadow: 0 0 5px rgba(228, 22, 0, 1);
+    box-shadow: 0 0 5px rgba(228, 22, 0, 1);
   }
 }
 @keyframes loginbox-form-error {
   0% {
     -webkit-box-shadow: 0 0 0 rgba(228, 22, 0, 0.35);
-            box-shadow: 0 0 0 rgba(228, 22, 0, 0.35);
+    box-shadow: 0 0 0 rgba(228, 22, 0, 0.35);
   }
   100% {
-    -webkit-box-shadow: 0 0px 5px rgba(228, 22, 0, 1.0);
-            box-shadow: 0 0px 5px rgba(228, 22, 0, 1.0);
+    -webkit-box-shadow: 0 0px 5px rgba(228, 22, 0, 1);
+    box-shadow: 0 0px 5px rgba(228, 22, 0, 1);
+  }
+}
+
+.scale-up-hor-right {
+  -webkit-animation: scale-up-hor-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: scale-up-hor-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes scale-up-hor-right {
+  0% {
+    -webkit-transform: scaleX(0.4);
+    transform: scaleX(0.4);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+}
+@keyframes scale-up-hor-right {
+  0% {
+    -webkit-transform: scaleX(0.4);
+    transform: scaleX(0.4);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+}
+
+.fade-in {
+  -webkit-animation: fade-in 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation-delay: 0.7s;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.slide-in-fwd-center {
+  -webkit-animation: slide-in-fwd-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-fwd-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: 0.3s;
+}
+
+@-webkit-keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+    transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+    transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
   }
 }

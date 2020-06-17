@@ -12,20 +12,21 @@ import { faFileAudio, faExclamationTriangle, faUpload, faTrashAlt, faTimes } fro
 export default function MyPatterns() {
   const context = useContext(AuthContext);
   const gridContext = useContext(GridContext);
-  const [service] = useState(new UserService());
   const [showPatterns, setShowPatterns] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [currentPatterns, setCurrentPatterns] = useState();
-  const userUpdated = context.appUser;
+  const service = new UserService();
 
   useEffect(() => {
+    const service = new UserService();
     if (context.appUser) {
-      getPatternsFromApi();
+      service.getPatterns().then((result) => {
+          setCurrentPatterns(result);
+      });
     }
-  }, [userUpdated, context.appUser, getPatternsFromApi]);
+  }, [context.appUser]);
 
   const showPatternFrame = () => {
-    console.log("show pattern frame");
     setShowPatterns(!showPatterns);
     getPatternsFromApi();
   };
@@ -64,10 +65,10 @@ export default function MyPatterns() {
             <div className="navbar-mypatterns-showcontentbox-content-inside">
               {!context.appUser ? (
                 <>
-              <span onClick={() => showPatternFrame()} className="floating-save-box-close">
-                <FontAwesomeIcon icon={faTimes} />
-              </span>
-                <LoginBox />
+                  <span onClick={() => showPatternFrame()} className="floating-save-box-close">
+                    <FontAwesomeIcon icon={faTimes} />
+                  </span>
+                  <LoginBox close={showPatternFrame} />
                 </>
               ) : (
                 <span>

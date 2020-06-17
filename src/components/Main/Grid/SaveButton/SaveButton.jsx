@@ -104,7 +104,7 @@ export default function SaveButton(props) {
               <span onClick={closeFloatingSaveBox} className="floating-save-box-close">
                 <FontAwesomeIcon icon={faTimes} />
               </span>
-              <LoginBox />
+              <LoginBox close={closeFloatingSaveBox} />
             </div>
           )}
         </div>

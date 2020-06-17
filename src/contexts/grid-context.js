@@ -16,7 +16,6 @@ export const GridContextProvider = (props) => {
     await service
       .loadPattern(patternId)
       .then((response) => {
-        // console.log(response.data)
         setGridData(response.data);
         setProvideGridLoading(true);
       })

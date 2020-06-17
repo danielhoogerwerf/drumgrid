@@ -9,12 +9,19 @@ class AuthService {
     });
   }
 
-  signup = (username, password) => {
-    return this.service.post("/api/auth/signup", { username, password }).then((response) => response.data);
+  signup = (username, password, email) => {
+    return this.service
+      .post("/api/auth/signup", { username, password, email })
+      .then((response) => response.data)
+      .catch((err) => err);
   };
 
   login = (username, password) => {
     return this.service.post("/api/auth/login", { username, password }).then((response) => response.data);
+  };
+
+  forgotPassword = (email) => {
+    return this.service.post("/api/auth/forgotpassword", { email }).then((response) => response.data);
   };
 
   logout = () => {
