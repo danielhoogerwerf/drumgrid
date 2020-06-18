@@ -1,6 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./Profile.css";
 import { AuthContext } from "../../../../contexts/auth-context";
+import UserService from "../../../../services/user-service";
+
 import LoginBox from "../../Grid/LoginBox/LoginBox";
 
 // Font Awesome
@@ -9,21 +11,61 @@ import { faSignOutAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export default function Profile() {
   const [showProfile, setShowProfile] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [editEmail, setEditEmail] = useState(false);
+  const [editPassword, setEditPassword] = useState(false);
+  const [wrongEmail, setWrongEmail] = useState(false);
+  const [wrongPassword, setWrongPassword] = useState(false);
   const context = useContext(AuthContext);
+  const service = new UserService();
 
-  // useEffect(() => {
-  //   if (!context.appUser) {
-  //     context.checkLogin();
-  //   }
-  // }, [context.appUser, context]);
+  useEffect(() => {
+    if (!context.appUser) {
+      context.checkLogin();
+    } else {
+      setEmail(context.appUser.email);
+    }
+  }, [context.appUser, context]);
 
   const showProfileFrame = () => {
     setShowProfile(!showProfile);
   };
 
   const signOut = () => {
-    console.log("sign out");
     context.logout();
+  };
+
+  const handleProfileUpdateSubmit = (event) => {
+    event.preventDefault();
+    let errorDetected = false;
+    console.log("submit profile update");
+
+    if (!email) {
+      console.log('e1')
+      setWrongEmail("This field cannot be empty");
+      errorDetected = true;
+    }
+
+    if (editPassword && !password) {
+      console.log("e2");
+      setEditPassword(false);
+      errorDetected = true;
+    }
+
+    if (!errorDetected) {
+      console.log("go go go !");
+      console.log(email)
+      setEditEmail(false);
+      setEditPassword(false);
+      setWrongEmail(false);
+      setWrongPassword(false);
+      service.updateProfile(email, password)
+      .then((e) => {
+        console.log(e)
+        setPassword("");
+      });
+    }
   };
 
   return (
@@ -36,33 +78,88 @@ export default function Profile() {
             {!context.appUser ? (
               <LoginBox close={showProfileFrame} />
             ) : (
-              <span className="navbar-profile-showcontentbox-content-inside-pads">
-                <div className="navbar-profile-showcontentbox-content-inside-close">
-                  <button onClick={() => showProfileFrame()}>
-                    <FontAwesomeIcon icon={faTimes} />
+              <div className="navbar-profile-showcontentbox-content-inside-loggedin">
+                <div className="navbar-profile-showcontentbox-content-inside-pads">
+                  <div className="navbar-profile-showcontentbox-content-inside-close">
+                    <button onClick={() => showProfileFrame()}>
+                      <FontAwesomeIcon icon={faTimes} />
+                    </button>
+                  </div>
+                  <form onSubmit={handleProfileUpdateSubmit}>
+                    <div className="navbar-profile-showcontentbox-content-inside-fat">
+                      <p>EMAIL</p>
+                      <span className="navbar-profile-showcontentbox-content-inside-normal">
+                        {!editEmail ? (
+                          email
+                        ) : (
+                          <>
+                            {wrongEmail && (
+                              <div className="navbar-profile-showcontentbox-content-inside-erroremail">
+                                {wrongEmail}
+                              </div>
+                            )}
+                            <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                          </>
+                        )}
+                      </span>
+                      <span className="navbar-profile-showcontentbox-content-inside-button">
+                        {!editEmail ? (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setEditEmail(true);
+                            }}
+                          >
+                            EDIT
+                          </button>
+                        ) : (
+                          <button type="submit">UPDATE</button>
+                        )}
+                      </span>
+                    </div>
+                    <div className="navbar-profile-showcontentbox-content-inside-fat">
+                      <p>PASSWORD</p>
+                      <span className="navbar-profile-showcontentbox-content-inside-normal">
+                        {!editPassword ? (
+                          "●●●●●●●●●●"
+                        ) : (
+                          <>
+                            {wrongPassword && (
+                              <div className="navbar-profile-showcontentbox-content-inside-erroremail">
+                                {wrongPassword}
+                              </div>
+                            )}
+                            <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                          </>
+                        )}
+                      </span>
+                      <span className="navbar-profile-showcontentbox-content-inside-button">
+                        {!editPassword ? (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setEditPassword(true);
+                            }}
+                          >
+                            EDIT
+                          </button>
+                        ) : (
+                          <button>UPDATE</button>
+                        )}
+                      </span>
+                    </div>
+                    <div className="navbar-profile-showcontentbox-content-inside-username">
+                      Current username: <strong>{context.appUser.username}</strong>
+                    </div>
+                  </form>
+                  <button onClick={() => signOut()}>
+                    <span className="navbar-profile-showcontentbox-content-inside-pads-btnspan">Logout</span>
+                    <FontAwesomeIcon icon={faSignOutAlt} />
                   </button>
                 </div>
-                <div className="navbar-profile-showcontentbox-content-inside-fat">
-                  <p>USERNAME</p>
-                  <span className="navbar-profile-showcontentbox-content-inside-normal">
-                    {context.appUser.username}
-                  </span>
-                  <span className="navbar-profile-showcontentbox-content-inside-button">
-                    <button>UPDATE</button>
-                  </span>
-                </div>
-                <div className="navbar-profile-showcontentbox-content-inside-fat">
-                  <p>EMAIL</p>
-                  <span className="navbar-profile-showcontentbox-content-inside-normal">{context.appUser.email}</span>
-                  <span className="navbar-profile-showcontentbox-content-inside-button">
-                    <button>UPDATE</button>
-                  </span>
-                </div>
-                <button onClick={() => signOut()}>
-                  <span className="navbar-profile-showcontentbox-content-inside-pads-btnspan">Logout</span>{"  "}
-                  <FontAwesomeIcon icon={faSignOutAlt} />
-                </button>
-              </span>
+              </div>
             )}
           </div>
         </div>

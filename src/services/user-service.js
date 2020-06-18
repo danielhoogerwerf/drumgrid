@@ -9,12 +9,8 @@ class UserService {
     });
   }
 
-  changeUserName = (profile) => {
-    return this.service.post("/api/profile/changeusername", { profile }).then((response) => response.data);
-  };
-
-  changePassword = (profile) => {
-    return this.service.post("/api/profile/changePassword", { profile }).then((response) => response.data);
+  updateProfile = (email, password) => {
+    return this.service.post("/api/profile/updateprofile", { email, password }).then((response) => response.data);
   };
 
   savePattern = (name, data) => {

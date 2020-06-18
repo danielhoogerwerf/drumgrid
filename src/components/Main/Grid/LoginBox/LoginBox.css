@@ -233,14 +233,15 @@
 
 .loginbox-signup-container-inside-button button:nth-child(1) {
   position: absolute;
-  bottom: 35px;
   /* margin-bottom: 15px; */
   font-size: 16px;
-  width: 85px;
+  width: 76px;
+  height: 40px;
   right: 35px;
-  height: 45px;
+  bottom: 40px;
   border-radius: 3px;
   font-weight: 600;
+  font-size: 14px;
   background-color: #474b49;
 }
 
@@ -278,8 +279,8 @@
 
 .loginbox-password-reset {
   width: 100%;
-    padding-right: 100px;
-    box-sizing: border-box;
+  padding-right: 100px;
+  box-sizing: border-box;
 }
 
 .loginbox-password-reset-softer {
@@ -296,7 +297,6 @@
   height: 30px;
   right: 25px;
   bottom: 35%;
-
 }
 
 /* ----------------------------------------------
