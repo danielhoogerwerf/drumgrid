@@ -19,9 +19,7 @@ export default function AboutApp() {
               DRUMGRID
             </p>
             <br />
-            <p>
-              This app is a graduation project for the web development bootcamp from IronHack.
-            </p>
+            <p>This app is a graduation project for the web development bootcamp from IronHack.</p>
             <br />
             <p className="navbar-aboutapp-showcontentbox-content-textborder">MANUAL</p>
             <br />
@@ -61,8 +59,9 @@ export default function AboutApp() {
             <br />
 
             <button onClick={() => showAboutFrame()}>CLOSE WINDOW</button>
+
             <br />
-            <br />
+            <span className="navbar-aboutapp-showcontentbox-content-version">v0.91</span>
           </div>
         </div>
       )}
