@@ -84,6 +84,13 @@ export default class Grid extends Component {
     this.context.loadingFinished();
   };
 
+  updateNameAfterSaving = (name) => {
+    console.log('updating name..')
+    const currentGrid = this.state.gridData;
+    currentGrid[0].patttern = name
+    this.setState({gridData: currentGrid})
+  }
+
   clearGrid = () => {
     Tone.Transport.cancel();
     let newArr = this.state.gridData;
@@ -278,7 +285,12 @@ export default class Grid extends Component {
                 />
               </span>
             </div>
-            <SaveButton gridData={this.state.gridData} tempo={this.state.toneBPM} volume={this.state.volume} />
+            <SaveButton
+              gridData={this.state.gridData}
+              tempo={this.state.toneBPM}
+              volume={this.state.volume}
+              updatename={this.updateNameAfterSaving} 
+            />
           </div>
           {/* End of transport line */}
           {/* Start of grid lanes */}

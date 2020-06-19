@@ -36,13 +36,18 @@ export default function Profile() {
     context.logout();
   };
 
+  const performLogin = (username, password) => {
+    showProfileFrame();
+    context.makeLogin(username, password);
+  };
+
   const handleProfileUpdateSubmit = (event) => {
     event.preventDefault();
     let errorDetected = false;
     console.log("submit profile update");
 
     if (!email) {
-      console.log('e1')
+      console.log("e1");
       setWrongEmail("This field cannot be empty");
       errorDetected = true;
     }
@@ -55,15 +60,18 @@ export default function Profile() {
 
     if (!errorDetected) {
       console.log("go go go !");
-      console.log(email)
-      setEditEmail(false);
-      setEditPassword(false);
-      setWrongEmail(false);
-      setWrongPassword(false);
-      service.updateProfile(email, password)
-      .then((e) => {
-        console.log(e)
-        setPassword("");
+      service.updateProfile(email, password).then((msg) => {
+        if (msg.message === "Email address already exists") {
+          setWrongEmail("Email address already exists");
+        } else {
+          service.updateProfile(email, password).then((msg) => {
+            setEditEmail(false);
+            setEditPassword(false);
+            setWrongEmail(false);
+            setWrongPassword(false);
+            setPassword("");
+          });
+        }
       });
     }
   };
@@ -76,7 +84,12 @@ export default function Profile() {
         <div className="navbar-profile-showcontentbox">
           <div className="navbar-profile-showcontentbox-content-inside">
             {!context.appUser ? (
-              <LoginBox close={showProfileFrame} />
+              <>
+                <span onClick={() => showProfileFrame()} className="floating-save-box-close">
+                  <FontAwesomeIcon icon={faTimes} />
+                </span>
+                <LoginBox close={performLogin} />
+              </>
             ) : (
               <div className="navbar-profile-showcontentbox-content-inside-loggedin">
                 <div className="navbar-profile-showcontentbox-content-inside-pads">
@@ -130,7 +143,12 @@ export default function Profile() {
                                 {wrongPassword}
                               </div>
                             )}
-                            <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <input
+                              type="password"
+                              name="password"
+                              value={password}
+                              onChange={(e) => setPassword(e.target.value)}
+                            />
                           </>
                         )}
                       </span>

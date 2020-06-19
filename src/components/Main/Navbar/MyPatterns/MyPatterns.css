@@ -40,10 +40,23 @@
   text-transform: none;
 }
 
+.navbar-mypatterns-showcontentbox-content-inside-patternbox {
+  padding-top: 26px;
+}
+
+.navbar-mypatterns-showcontentbox-content-inside-patternbox-text {
+  position: absolute;
+  top: 2px;
+  left: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 .navbar-mypatterns-showcontentbox-content-inside-patterns {
   overflow: hidden;
   text-transform: none;
-  font-size: 13px;
+  font-size: 14.5px;
   padding-left: 10px;
 }
 
@@ -78,7 +91,7 @@
   width: 75%;
   height: 100%;
   text-transform: none;
-  padding: 0 0 0 20px;
+  padding: 0 0 0 10px;
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-overwrite button {
@@ -92,14 +105,14 @@
 
 .navbar-mypatterns-showcontentbox-content-inside-overwrite-btnyes {
   position: absolute;
-  right: 30px;
-  top: 20px;
+  right: 20px;
+  top: 30px;
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-overwrite-btnno {
   position: absolute;
-  right: 30px;
-  top: 70px;
+  right: 20px;
+  top: 80px;
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-overwrite p {
@@ -114,4 +127,63 @@
   font-weight: 600;
   font-size: 12px;
   text-align: center;
+}
+
+.navbar-mypatterns-showcontentbox-content-inside-close button {
+  position: absolute;
+  left: 380px;
+  background-color: transparent;
+  height: 5px;
+  width: 10px;
+}
+
+.navbar-mypatterns-showcontentbox-content-inside-close button:hover {
+  color: #ffd059;
+  background-color: transparent;
+  border: 0px;
+}
+
+.navbar-mypatterns-showcontentbox-content-inside-close button:active {
+  border: 0px;
+  background-color: transparent;
+  color: #e4a400;
+}
+
+.navbar-mypatterns-showcontentbox-content-inside-empty {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar-mypatterns-showcontentbox-content-inside-patterns-tbox {
+display: inline-block;
+position: absolute;
+}
+
+.navbar-mypatterns-showcontentbox-content-inside-tooltip {
+  display: inline-block;
+}
+
+.navbar-mypatterns-showcontentbox-content-inside-tooltip .tooltiptext  {
+  visibility: hidden;
+  width: 120px;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 5px 0;
+  background-color: #1c1d1d;
+  box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+
+  /* Position the tooltip */
+  position: absolute;
+  top: 100%;
+  z-index: 11;
+}
+
+.navbar-mypatterns-showcontentbox-content-inside-tooltip:hover .tooltiptext {
+  visibility: visible;
 }

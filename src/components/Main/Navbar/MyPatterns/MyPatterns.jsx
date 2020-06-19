@@ -21,14 +21,21 @@ export default function MyPatterns() {
     const service = new UserService();
     if (context.appUser) {
       service.getPatterns().then((result) => {
-          setCurrentPatterns(result);
+        setCurrentPatterns(result);
       });
     }
   }, [context.appUser]);
 
   const showPatternFrame = () => {
     setShowPatterns(!showPatterns);
-    getPatternsFromApi();
+    if (context.appUser) {
+      getPatternsFromApi();
+    }
+  };
+
+  const performLogin = (username, password) => {
+    showPatternFrame();
+    context.makeLogin(username, password);
   };
 
   const getPatternsFromApi = () => {
@@ -40,7 +47,6 @@ export default function MyPatterns() {
   };
 
   const loadPattern = (patternId) => {
-    console.log(`Load pattern with id: ${patternId}`);
     gridContext.updateGrid(patternId);
   };
 
@@ -49,7 +55,6 @@ export default function MyPatterns() {
   };
 
   const delPattern = (patternId) => {
-    console.log("deleting pattern");
     service.deletePattern(patternId).then(() => {
       getPatternsFromApi();
       setConfirmDelete(false);
@@ -68,10 +73,15 @@ export default function MyPatterns() {
                   <span onClick={() => showPatternFrame()} className="floating-save-box-close">
                     <FontAwesomeIcon icon={faTimes} />
                   </span>
-                  <LoginBox close={showPatternFrame} />
+                  <LoginBox close={performLogin} />
                 </>
               ) : (
-                <span>
+                <>
+                  <div className="navbar-mypatterns-showcontentbox-content-inside-close">
+                    <button onClick={() => showPatternFrame()}>
+                      <FontAwesomeIcon icon={faTimes} />
+                    </button>
+                  </div>
                   {currentPatterns ? (
                     confirmDelete ? (
                       <div className="navbar-mypatterns-showcontentbox-content-inside-overwrite">
@@ -88,33 +98,46 @@ export default function MyPatterns() {
                           <button onClick={() => setConfirmDelete(false)}>NO</button>
                         </span>
                       </div>
+                    ) : currentPatterns.length === 0 ? (
+                      <div className="navbar-mypatterns-showcontentbox-content-inside-empty">
+                        You haven't saved any patterns yet.
+                        <br />
+                        <br />
+                        <strong>Go make some music!</strong>
+                      </div>
                     ) : (
-                      currentPatterns.map((elem, key) => {
-                        return (
-                          <div key={key} className="navbar-mypatterns-showcontentbox-content-inside-patterns">
-                            <span>
-                              <FontAwesomeIcon icon={faFileAudio} />
-                            </span>
-                            <p>{elem.name.length > 32 ? `${elem.name.slice(0, 32)}...` : elem.name}</p>
-                            <button onClick={() => loadPattern(elem.id)}>
-                              <FontAwesomeIcon icon={faUpload} />
-                            </button>
-                            <button onClick={() => delPatternConfirmation(elem.id)}>
-                              <FontAwesomeIcon icon={faTrashAlt} />
-                            </button>
-                          </div>
-                        );
-                      })
+                      <div className="navbar-mypatterns-showcontentbox-content-inside-patternbox">
+                        <div className="navbar-mypatterns-showcontentbox-content-inside-patternbox-text">your stored patterns</div>
+                        {currentPatterns.map((elem, key) => {
+                          return (
+                            <div key={key} className="navbar-mypatterns-showcontentbox-content-inside-patterns">
+                              <span>
+                                <FontAwesomeIcon icon={faFileAudio} />
+                              </span>
+                              <p>{elem.name.length > 32 ? `${elem.name.slice(0, 32)}...` : elem.name}</p>
+                              <div className="navbar-mypatterns-showcontentbox-content-inside-patterns-tbox">
+                                <div className="navbar-mypatterns-showcontentbox-content-inside-tooltip">
+                                  <button onClick={() => loadPattern(elem.id)}>
+                                    <FontAwesomeIcon icon={faUpload} />
+                                  </button>
+                                  <span className="tooltiptext">Load pattern</span>
+                                </div>
+                                <div className="navbar-mypatterns-showcontentbox-content-inside-tooltip">
+                                  <button onClick={() => delPatternConfirmation(elem.id)}>
+                                    <FontAwesomeIcon icon={faTrashAlt} />
+                                  </button>
+                                  <span className="tooltiptext">Delete pattern</span>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
                     )
                   ) : (
                     <div>Loading patterns..</div>
                   )}
-                  {!confirmDelete && (
-                    <span className="navbar-mypatterns-showcontentbox-content-inside-btnclose">
-                      <button onClick={() => showPatternFrame()}>close</button>
-                    </span>
-                  )}
-                </span>
+                </>
               )}
             </div>
           </div>

@@ -80,23 +80,20 @@ export default function LoginBox(props) {
           }
 
           if (response.user) {
+            console.log("logging in..");
+            const usr = username;
+            const pwd = password;
+            setSignUpOkay(true);
+            setEmail("");
             setUsername("");
             setPassword("");
-            setEmail("");
-            context.checkLogin().then(() => {
-              setSignUpOkay(true);
-              closeModule();
-            });
-            return;
+            setTimeout(() => {props.close(usr,pwd)}, 3000);
           }
         })
         .catch((error) => console.log(error));
     }
   };
 
-  const closeModule = () => {
-    setTimeout(() => props.close(), 2000);
-  };
 
   const forgotPasswordSetup = () => {
     setForgotPasswordOkay(false);
@@ -257,7 +254,7 @@ export default function LoginBox(props) {
                           <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         )}
                         <div className="loginbox-signup-container-inside-button loginbox-password-reset-btn">
-                          <button type="submit">RESET</button>
+                          <button type="submit">SEND</button>
                         </div>
                       </div>
                     </form>

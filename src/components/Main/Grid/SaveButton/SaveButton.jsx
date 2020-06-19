@@ -25,6 +25,12 @@ export default function SaveButton(props) {
   };
 
   const closeFloatingSaveBox = () => setshowFloatingBoxSave(false);
+
+  const performLogin = (username, password) => {
+    closeFloatingSaveBox();
+    context.makeLogin(username, password);
+  };
+
   const closeFloatingSaveBoxCompleted = () => {
     setshowFloatingBoxSave(false);
     setSaveSuccessful(false);
@@ -69,7 +75,6 @@ export default function SaveButton(props) {
       if (patternExists) {
         service.updatePattern(patternExists, cleanPatternName, updateCurrentGridArray).then((result) => {
           if (result.message === "OK") {
-            console.log("update");
             setSaveSuccessful(true);
             setPatternExists(false);
           }
@@ -77,16 +82,15 @@ export default function SaveButton(props) {
       } else {
         service.savePattern(cleanPatternName, updateCurrentGridArray).then((result) => {
           if (result.message === "OK") {
-            console.log("save");
             setSaveSuccessful(true);
             setPatternExists(false);
+            props.updatename(cleanPatternName);
           }
 
           if (result.error === "too many patterns already stored") {
-            console.log("bla");
-                        setSaveSuccessful(true);
-                        setPatternExists(false);
-                        setTooManyPatterns(true);
+            setSaveSuccessful(true);
+            setPatternExists(false);
+            setTooManyPatterns(true);
           }
         });
       }
@@ -104,7 +108,7 @@ export default function SaveButton(props) {
               <span onClick={closeFloatingSaveBox} className="floating-save-box-close">
                 <FontAwesomeIcon icon={faTimes} />
               </span>
-              <LoginBox close={closeFloatingSaveBox} />
+              <LoginBox close={performLogin} />
             </div>
           )}
         </div>

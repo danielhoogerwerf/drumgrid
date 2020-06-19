@@ -8,16 +8,15 @@ export const AuthContextProvider = (props) => {
   const service = new AuthService();
 
   const makeLogin = async (username, password) => {
-    let result = await service
+    return await service
       .login(username, password)
       .then((response) => {
         if (response.username) {
           setAppUser(response);
         }
-        return response
+        return response;
       })
       .catch((error) => console.log(error));
-    return result;
   };
 
   const checkLogin = async () => {
@@ -29,13 +28,15 @@ export const AuthContextProvider = (props) => {
   };
 
   const logout = async () => {
-    let result = await service
+    await service
       .logout()
       .then((response) => {
-        if (response.message === "User logged out succesfully") setAppUser(null);
+        if (response.message === "User logged out succesfully") {
+          setAppUser(null);
+          console.log("logged out.");
+        }
       })
       .catch((e) => console.log(e));
-    console.log("logged out", result);
   };
 
   // return <AuthContext.Provider value={[appUser, setAppUser]}>{props.children}</AuthContext.Provider>;
