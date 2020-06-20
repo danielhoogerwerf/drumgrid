@@ -61,7 +61,7 @@ export default function AboutApp() {
             <button onClick={() => showAboutFrame()}>CLOSE WINDOW</button>
 
             <br />
-            <span className="navbar-aboutapp-showcontentbox-content-version">v0.91</span>
+            <span className="navbar-aboutapp-showcontentbox-content-version">v0.94</span>
           </div>
         </div>
       )}
