@@ -52,13 +52,13 @@
   width: 80px;
   height: 30px;
   background-color: #592baf;
-
+  font-size: 12px;
   color: white;
   outline: 0;
   border: 0;
   font-weight: 600;
   position: absolute;
-  right: 10px;
+  right: 15px;
   bottom: 45px;
   border-radius: 3px;
   cursor: pointer;
@@ -169,6 +169,15 @@
 
 .loginbox-form-submit button:nth-child(1):active {
   color: #724dba;
+}
+
+.loginbox-form-loginerror {
+  position: absolute;
+  right: 22px;
+  bottom: 16px;
+  text-align: right;
+  font-size: 12px;
+  color: #ff6958;
 }
 
 .loginbox-signup-container {

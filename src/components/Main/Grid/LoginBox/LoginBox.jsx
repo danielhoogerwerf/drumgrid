@@ -28,19 +28,34 @@ export default function LoginBox(props) {
   const [signUpOkay, setSignUpOkay] = useState();
   const [forgotPassword, setForgotPassword] = useState();
   const [forgotPasswordOkay, setForgotPasswordOkay] = useState();
+  const [loginError, setLoginError] = useState("");
   const service = new AuthService();
 
   const handleLoginFormSubmit = (event) => {
     event.preventDefault();
+    setWrongUserName(false);
     setWrongPassword(false);
+    setLoginError("");
 
     const pwd = password;
     setPassword("");
 
     context.makeLogin(username, pwd).then((response) => {
+      console.log(response);
       if (!response.username) {
-        setPassword("");
-        setWrongPassword(true);
+        if (response.message === "Missing credentials") {
+          setWrongUserName(true);
+          setWrongPassword(true);
+          setLoginError(response.message);
+        }
+        if (response.message === "Username not found") {
+          setWrongUserName(true);
+          setLoginError(response.message);
+        }
+        if (response.message === "Password is incorrect") {
+          setWrongPassword(true);
+          setLoginError(response.message);
+        }
       }
     });
   };
@@ -87,13 +102,14 @@ export default function LoginBox(props) {
             setEmail("");
             setUsername("");
             setPassword("");
-            setTimeout(() => {props.close(usr,pwd)}, 3000);
+            setTimeout(() => {
+              props.close(usr, pwd);
+            }, 3000);
           }
         })
         .catch((error) => console.log(error));
     }
   };
-
 
   const forgotPasswordSetup = () => {
     setForgotPasswordOkay(false);
@@ -265,8 +281,8 @@ export default function LoginBox(props) {
                 <div className="loginbox-form">
                   <form onSubmit={handleLoginFormSubmit}>
                     <div className="loginbox-form-header">
-                      <div className="loginbox-form-text">USERNAME</div>
-                      {wrongPassword ? (
+                      <div className="loginbox-form-text ">USERNAME</div>
+                      {wrongUserName ? (
                         <input
                           className="loginbox-form-error"
                           type="text"
@@ -310,6 +326,7 @@ export default function LoginBox(props) {
                         <FontAwesomeIcon icon={faSignInAlt} />
                       </button>
                     </div>
+                    <div className="loginbox-form-loginerror">{loginError}</div>
                   </form>
                 </div>
               )}

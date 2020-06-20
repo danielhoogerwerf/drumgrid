@@ -7,7 +7,14 @@ import LoginBox from "../../Grid/LoginBox/LoginBox";
 
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileAudio, faExclamationTriangle, faUpload, faTrashAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFileAudio,
+  faExclamationTriangle,
+  faUpload,
+  faTrashAlt,
+  faTimes,
+  faCheck,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function MyPatterns() {
   const context = useContext(AuthContext);
@@ -27,7 +34,13 @@ export default function MyPatterns() {
   }, [context.appUser]);
 
   const showPatternFrame = () => {
-    setShowPatterns(!showPatterns);
+    gridContext.openSingleWindow("patterns");
+    if (gridContext.windowOpen !== "patterns") {
+      setShowPatterns(true);
+    } else {
+      setShowPatterns(!showPatterns);
+    }
+
     if (context.appUser) {
       getPatternsFromApi();
     }
@@ -65,7 +78,7 @@ export default function MyPatterns() {
     <>
       <span className="navbar-mypatterns-text">
         <button onClick={() => showPatternFrame()}>my patterns</button>
-        {showPatterns && (
+        {showPatterns && gridContext.windowOpen === "patterns" && (
           <div className="navbar-mypatterns-showcontentbox">
             <div className="navbar-mypatterns-showcontentbox-content-inside">
               {!context.appUser ? (
@@ -92,10 +105,14 @@ export default function MyPatterns() {
                           Are you sure you want to delete your pattern?
                         </p>
                         <span className="navbar-mypatterns-showcontentbox-content-inside-overwrite-btnyes">
-                          <button onClick={() => delPattern(confirmDelete)}>YES</button>
+                          <button onClick={() => delPattern(confirmDelete)}>
+                            <FontAwesomeIcon icon={faCheck} />
+                          </button>
                         </span>
                         <span className="navbar-mypatterns-showcontentbox-content-inside-overwrite-btnno">
-                          <button onClick={() => setConfirmDelete(false)}>NO</button>
+                          <button onClick={() => setConfirmDelete(false)}>
+                            <FontAwesomeIcon icon={faTimes} />
+                          </button>
                         </span>
                       </div>
                     ) : currentPatterns.length === 0 ? (
@@ -107,14 +124,16 @@ export default function MyPatterns() {
                       </div>
                     ) : (
                       <div className="navbar-mypatterns-showcontentbox-content-inside-patternbox">
-                        <div className="navbar-mypatterns-showcontentbox-content-inside-patternbox-text">your stored patterns</div>
+                        <div className="navbar-mypatterns-showcontentbox-content-inside-patternbox-text">
+                          your stored patterns
+                        </div>
                         {currentPatterns.map((elem, key) => {
                           return (
                             <div key={key} className="navbar-mypatterns-showcontentbox-content-inside-patterns">
                               <span>
                                 <FontAwesomeIcon icon={faFileAudio} />
                               </span>
-                              <p>{elem.name.length > 32 ? `${elem.name.slice(0, 32)}...` : elem.name}</p>
+                              <p>{elem.name.length > 29 ? `${elem.name.slice(0, 29)}...` : elem.name}</p>
                               <div className="navbar-mypatterns-showcontentbox-content-inside-patterns-tbox">
                                 <div className="navbar-mypatterns-showcontentbox-content-inside-tooltip">
                                   <button onClick={() => loadPattern(elem.id)}>

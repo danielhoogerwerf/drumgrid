@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./Profile.css";
 import { AuthContext } from "../../../../contexts/auth-context";
+import { GridContext } from "../../../../contexts/grid-context";
 import UserService from "../../../../services/user-service";
 
 import LoginBox from "../../Grid/LoginBox/LoginBox";
@@ -18,6 +19,7 @@ export default function Profile() {
   const [wrongEmail, setWrongEmail] = useState(false);
   const [wrongPassword, setWrongPassword] = useState(false);
   const context = useContext(AuthContext);
+  const gridContext = useContext(GridContext);
   const service = new UserService();
 
   useEffect(() => {
@@ -29,7 +31,12 @@ export default function Profile() {
   }, [context.appUser, context]);
 
   const showProfileFrame = () => {
-    setShowProfile(!showProfile);
+    gridContext.openSingleWindow("profile");
+    if (gridContext.windowOpen !== "profile") {
+      setShowProfile(true);
+    } else {
+      setShowProfile(!showProfile);
+    }
   };
 
   const signOut = () => {
@@ -80,7 +87,7 @@ export default function Profile() {
     <span className="navbar-profile-text">
       {!context.appUser && <button onClick={() => showProfileFrame()}>login</button>}
       {context.appUser && <button onClick={() => showProfileFrame()}>profile</button>}
-      {showProfile && (
+      {showProfile && gridContext.windowOpen === "profile" && (
         <div className="navbar-profile-showcontentbox">
           <div className="navbar-profile-showcontentbox-content-inside">
             {!context.appUser ? (

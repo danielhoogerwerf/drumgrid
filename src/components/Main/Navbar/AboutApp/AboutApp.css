@@ -30,7 +30,7 @@
   max-height: 300px;
   height: 300px;
   top: 10px;
-  z-index: 3;
+  z-index: 11;
   background-color: rgba(39, 45, 41, 0.90);
   backdrop-filter: blur(2px);
   text-transform: none;

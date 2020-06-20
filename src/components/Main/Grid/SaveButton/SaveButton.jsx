@@ -4,11 +4,12 @@ import "./SaveButton.css";
 // External imports
 import UserService from "../../../../services/user-service";
 import { AuthContext } from "../../../../contexts/auth-context";
+import { GridContext } from "../../../../contexts/grid-context";
 import LoginBox from "../LoginBox/LoginBox";
 
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faCheck, faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faCheck, faExclamationTriangle, faFileDownload } from "@fortawesome/free-solid-svg-icons";
 
 export default function SaveButton(props) {
   const [showFloatingBoxSave, setshowFloatingBoxSave] = useState(false);
@@ -17,11 +18,17 @@ export default function SaveButton(props) {
   const [tooManyPatterns, setTooManyPatterns] = useState(false);
   const [service] = useState(new UserService());
   const context = useContext(AuthContext);
+  const gridContext = useContext(GridContext);
   const [patternExists, setPatternExists] = useState(false);
 
   const saveButton = (e) => {
     e.preventDefault();
-    setshowFloatingBoxSave(!showFloatingBoxSave);
+    gridContext.openSingleWindow("save");
+    if (gridContext.windowOpen !== "save") {
+      setshowFloatingBoxSave(true);
+    } else {
+      setshowFloatingBoxSave(!showFloatingBoxSave);
+    }
   };
 
   const closeFloatingSaveBox = () => setshowFloatingBoxSave(false);
@@ -103,7 +110,7 @@ export default function SaveButton(props) {
       {!context.appUser ? (
         <div className="grid-block-transport grid-block-save">
           <button onClick={(e) => saveButton(e)}>SAVE</button>
-          {showFloatingBoxSave && (
+          {showFloatingBoxSave && gridContext.windowOpen === "save" && (
             <div className="floating-save-box floating-save-box-container">
               <span onClick={closeFloatingSaveBox} className="floating-save-box-close">
                 <FontAwesomeIcon icon={faTimes} />
@@ -115,9 +122,13 @@ export default function SaveButton(props) {
       ) : (
         <div className="grid-block-transport grid-block-save">
           <button onClick={(e) => saveButton(e)}>SAVE</button>
-          {showFloatingBoxSave && (
+          {showFloatingBoxSave && gridContext.windowOpen === "save" && (
             <div className="floating-save-box floating-save-box-container">
-              {!saveSuccessful && (
+              {saveSuccessful ? (
+                <span onClick={closeFloatingSaveBoxCompleted} className="floating-save-box-close">
+                  <FontAwesomeIcon icon={faTimes} />
+                </span>
+              ) : (
                 <span onClick={closeFloatingSaveBox} className="floating-save-box-close">
                   <FontAwesomeIcon icon={faTimes} />
                 </span>
@@ -125,17 +136,21 @@ export default function SaveButton(props) {
               {!saveSuccessful ? (
                 <div className="floating-save-box-container-fields">
                   {patternExists ? (
-                    <div className="floating-save-box-container-fields-exists">
-                      <p className="floating-save-box-container-fields-error">
+                    <div className="floating-save-box-container-fields-exists floating-save-box-container-fields-save">
+                      <div className="floating-save-box-container-fields-error">
                         <FontAwesomeIcon icon={faExclamationTriangle} />
-                      </p>
+                      </div>
                       <p>Pattern already exists!</p>
                       <p>Overwrite?</p>
                       <span className="floating-save-box-container-fields-btnyes">
-                        <button onClick={sendData}>YES</button>
+                        <button onClick={sendData}>
+                          <FontAwesomeIcon icon={faCheck} />
+                        </button>
                       </span>
                       <span className="floating-save-box-container-fields-btnno">
-                        <button onClick={() => setPatternExists(false)}>NO</button>
+                        <button onClick={() => setPatternExists(false)}>
+                          <FontAwesomeIcon icon={faTimes} />
+                        </button>
                       </span>
                     </div>
                   ) : (
@@ -151,30 +166,36 @@ export default function SaveButton(props) {
                           value={patternName}
                           onChange={(e) => setPatternName(e.target.value)}
                           name="patternname"
-                          placeholder="Please provide a name"
+                          placeholder="Type here your pattern name"
                         />
                       </p>
-                      <button onClick={checkDuplicate}>STORE</button>
+                      <span className="floating-save-box-container-fields-save">
+                        <button onClick={checkDuplicate}>
+                          <FontAwesomeIcon icon={faFileDownload} />
+                        </button>
+                      </span>
                     </div>
                   )}
                 </div>
               ) : tooManyPatterns ? (
-                <div className="floating-save-box-container-patternerror">
+                <div className="floating-save-box-container-patternerror floating-save-box-container-fields-save">
                   <span className="floating-save-box-container-patternerror-icon">
                     <FontAwesomeIcon icon={faExclamationTriangle} />
                   </span>
                   <span>Too many patterns stored in your account!</span>
                   <p>A maximum of 5 patterns are allowed.</p>
                   <p>You will need to delete a pattern in order to save a new one.</p>
-                  <button onClick={closeFloatingSaveBoxCompleted}>CLOSE</button>
+                  <button onClick={closeFloatingSaveBoxCompleted}>
+                    <FontAwesomeIcon icon={faCheck} />
+                  </button>
                 </div>
               ) : (
                 <div className="floating-save-box-container-saved">
-                  <span className="floating-save-box-container-saved-icon">
+                  <p className="floating-save-box-container-saved-icon">
                     <FontAwesomeIcon icon={faCheck} />
-                  </span>
-                  <span>Pattern saved successfully!</span>
-                  <button onClick={closeFloatingSaveBoxCompleted}>CLOSE</button>
+                  </p>
+                  <p>Pattern saved successfully!</p>
+                  {/* <button onClick={closeFloatingSaveBoxCompleted}>CLOSE</button> */}
                 </div>
               )}
             </div>

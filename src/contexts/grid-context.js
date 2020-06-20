@@ -10,6 +10,7 @@ export const GridContextProvider = (props) => {
   const parseGridInitData = JSON.parse(JSON.stringify(gridInitData));
   const [gridData, setGridData] = useState(parseGridInitData);
   const [provideGridLoading, setProvideGridLoading] = useState(false);
+  const [windowOpen, setWindowOpen] = useState();
   const service = new UserService();
 
   const updateGrid = async (patternId) => {
@@ -26,8 +27,12 @@ export const GridContextProvider = (props) => {
     setProvideGridLoading(false);
   };
 
+  const openSingleWindow = (window) => {
+        setWindowOpen(window);
+  };
+
   return (
-    <GridContext.Provider value={{ gridData, provideGridLoading, updateGrid, loadingFinished }}>
+    <GridContext.Provider value={{ gridData, provideGridLoading, windowOpen, updateGrid, loadingFinished, openSingleWindow }}>
       {props.children}
     </GridContext.Provider>
   );

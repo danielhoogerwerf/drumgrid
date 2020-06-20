@@ -95,12 +95,13 @@
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-overwrite button {
-  background-color: #592baf;
+  /* background-color: #592baf; */
   color: white;
   font-weight: 600;
   border-radius: 3px;
   width: 60px;
   height: 30px;
+  font-size: 24px;
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-overwrite-btnyes {

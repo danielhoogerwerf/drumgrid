@@ -37,6 +37,7 @@
   right: 5px;
   font-size: 14px;
   align-self: flex-start;
+  z-index: 90;
 }
 
 .floating-save-box-close:hover {
@@ -58,7 +59,7 @@
 }
 
 .floating-save-box-container-fields p {
-  padding: 0 0 0 5px;
+  padding: 0 0 0 20px;
   margin: 0;
 }
 
@@ -67,11 +68,11 @@
 
   width: 100%;
   height: 20px;
-  background-color: #592baf;
+  background-color: #474B49;
   color: white;
   outline: 0;
   border: 0;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 12px;
   font-family: "Montserrat", sans-serif;
   /* border-bottom: 2px dotted #9B70EC; */
@@ -81,15 +82,24 @@
 .floating-save-box-container button {
   width: 70px;
   height: 30px;
-  background-color: #592baf;
+  background-color: transparent;
   color: white;
   outline: 0;
   border: 0;
   font-weight: 600;
   position: absolute;
   right: 20px;
-  bottom: 15px;
+  bottom: 40px;
   border-radius: 3px;
+  font-size: 34px;
+}
+
+.floating-save-box-container-fields-save button:hover {
+  color: #9b70ec;
+}
+
+.floating-save-box-container-fields-save button:active {
+  color: #b998f5;
 }
 
 .floating-save-box-container-fields-exists {
@@ -98,35 +108,37 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  padding-left: 20px;
+  padding-left: 50px;
 }
+
 
 .floating-save-box-container-fields-error {
   font-weight: 600;
-  font-size: 30px;
+  font-size: 40px;
+  padding: 0 0 10px 20px;
 }
 
 .floating-save-box-container-fields-btnyes button {
-  background-color: #592baf;
+  /* background-color: #592baf; */
   color: white;
   outline: 0;
   border: 0;
   font-weight: 600;
   position: absolute;
-  right: 45px;
-  bottom: 55px;
+  right: 30px;
+  top: 20px;
   border-radius: 3px;
 }
 
 .floating-save-box-container-fields-btnno button {
-  background-color: #592baf;
+  /* background-color: #592baf; */
   color: white;
   outline: 0;
   border: 0;
   font-weight: 600;
   position: absolute;
-  right: 45px;
-  bottom: 10px;
+  right: 30px;
+  bottom: 20px;
   border-radius: 3px;
 }
 
@@ -134,14 +146,16 @@
   text-align: center;
   color: white;
   font-weight: 600;
+  width: 100%;
 }
 
 .floating-save-box-container-saved-icon {
-  font-size: 20px;
-  padding: 0 20px;
+  font-size: 40px;
+  
+  margin: 0;
 }
 
-.floating-save-box-container-saved button {
+/* .floating-save-box-container-saved button {
   width: 70px;
   height: 30px;
   background-color: #592baf;
@@ -153,7 +167,7 @@
   right: 20px;
   bottom: 30px;
   border-radius: 3px;
-}
+} */
 
 .floating-save-box-container-patternerror {
   color: white;
