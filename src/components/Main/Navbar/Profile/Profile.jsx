@@ -159,6 +159,7 @@ export default function Profile() {
                               onClick={() => {
                                 setEmail(context.appUser.email);
                                 setEditEmail(false);
+                                setWrongEmail(false);
                               }}
                             >
                               <FontAwesomeIcon icon={faTimes} />

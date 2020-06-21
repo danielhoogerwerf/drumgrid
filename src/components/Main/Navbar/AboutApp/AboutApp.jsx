@@ -2,6 +2,10 @@ import React, { useState, useContext } from "react";
 import "./AboutApp.css";
 import { GridContext } from "../../../../contexts/grid-context";
 
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFontAwesomeFlag } from "@fortawesome/free-brands-svg-icons";
+
 export default function AboutApp() {
   const [showAbout, setShowAbout] = useState(false);
   const gridContext = useContext(GridContext);
@@ -26,7 +30,7 @@ export default function AboutApp() {
       )}
       {showAbout && gridContext.windowOpen === "about" && (
         <div className="navbar-aboutapp-showcontentbox">
-          <div className="navbar-aboutapp-showcontentbox-shell fade-in-nodelay">
+          <div className="navbar-aboutapp-showcontentbox-shell scale-up-ver-top">
             <div className="navbar-aboutapp-showcontentbox-content fade-in-smalldelay">
               <div className="navbar-aboutapp-showcontentbox-content-flexlogos-box">
                 <div className="navbar-aboutapp-showcontentbox-content-apptechnologies">
@@ -65,12 +69,10 @@ export default function AboutApp() {
                 </div>
                 <div className="navbar-aboutapp-showcontentbox-content-flexlogos">
                   <div className="navbar-aboutapp-showcontentbox-content-flexlogos-whiteborder">
-                    <a href="https://expressjs.com" rel="noopener noreferrer" target="_blank">
-                      <img
-                        src="/images/expressjs-logo-w.svg"
-                        className="navbar-aboutapp-showcontentbox-content-logo"
-                        alt="Express.js"
-                      />
+                    <a href="https://fontawesome.com/" rel="noopener noreferrer" target="_blank">
+                      <span className="navbar-aboutapp-showcontentbox-content-flexlogos-fa">
+                        <FontAwesomeIcon icon={faFontAwesomeFlag} />
+                      </span>
                     </a>
                   </div>
                   <div className="navbar-aboutapp-showcontentbox-content-flexlogos-whiteborder">
@@ -83,11 +85,11 @@ export default function AboutApp() {
                     </a>
                   </div>
                   <div className="navbar-aboutapp-showcontentbox-content-flexlogos-whiteborder">
-                    <a href="https://nodemailer.com" rel="noopener noreferrer" target="_blank">
+                    <a href="https://expressjs.com" rel="noopener noreferrer" target="_blank">
                       <img
-                        src="/images/nodemailer-logo-w.png"
+                        src="/images/expressjs-logo-w.svg"
                         className="navbar-aboutapp-showcontentbox-content-logo"
-                        alt="Nodemailer"
+                        alt="Express.js"
                       />
                     </a>
                   </div>

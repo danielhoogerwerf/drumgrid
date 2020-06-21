@@ -64,7 +64,6 @@
 .navbar-aboutapp-showcontentbox-content button {
   margin-top: 40px;
   padding: 0;
-
 }
 
 .navbar-aboutapp-showcontentbox-content-flexlogos-box {
@@ -100,6 +99,14 @@
   width: 100%;
 }
 
+.navbar-aboutapp-showcontentbox-content-flexlogos-fa {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
 .navbar-aboutapp-showcontentbox-content-textborder {
   border-bottom: 1px dotted #ffc32a;
   display: inline-block;
@@ -112,4 +119,3 @@
 .navbar-aboutapp-showcontentbox-content-fattext {
   font-weight: 600;
 }
-
