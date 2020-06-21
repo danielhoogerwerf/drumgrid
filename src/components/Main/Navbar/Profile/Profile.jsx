@@ -51,22 +51,18 @@ export default function Profile() {
   const handleProfileUpdateSubmit = (event) => {
     event.preventDefault();
     let errorDetected = false;
-    console.log("submit profile update");
 
     if (!email) {
-      console.log("e1");
       setWrongEmail("This field cannot be empty");
       errorDetected = true;
     }
 
     if (editPassword && !password) {
-      console.log("e2");
       setEditPassword(false);
       errorDetected = true;
     }
 
     if (!errorDetected) {
-      console.log("go go go !");
       service.updateProfile(email, password).then((msg) => {
         if (msg.message === "Email address already exists") {
           setWrongEmail("Email address already exists");

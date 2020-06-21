@@ -62,7 +62,6 @@ export default class Grid extends Component {
   }
 
   loadingPattern = () => {
-    console.log(`loading pattern`);
     Tone.context.latencyHint = "interactive";
 
     this.clearGrid();
@@ -79,13 +78,11 @@ export default class Grid extends Component {
         }
       });
     });
-    console.log("done");
     Tone.context.latencyHint = "fastest";
     this.context.loadingFinished();
   };
 
   updateNameAfterSaving = (name) => {
-    console.log('updating name..')
     const currentGrid = this.state.gridData;
     currentGrid[0].patttern = name
     this.setState({gridData: currentGrid})

@@ -101,7 +101,6 @@ export default function LoginBox(props) {
           }
 
           if (response.user) {
-            console.log("logging in..");
             const usr = username;
             const pwd = password;
             setSignUpOkay(true);

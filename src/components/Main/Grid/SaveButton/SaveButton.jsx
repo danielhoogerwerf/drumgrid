@@ -68,9 +68,7 @@ export default function SaveButton(props) {
           sendData();
         }
       });
-    } else {
-      console.log(`field is empty`);
-    }
+    } 
   };
 
   const sendData = () => {
@@ -108,7 +106,6 @@ export default function SaveButton(props) {
 
   return (
     <>
-      {/* {console.log(context.appUser)} */}
       {!context.appUser ? (
         <div className="grid-block-transport grid-block-save">
           <button onClick={(e) => saveButton(e)}>SAVE</button>
