@@ -68,6 +68,8 @@ export default function SaveButton(props) {
           sendData();
         }
       });
+    } else {
+      console.log(`field is empty`);
     }
   };
 
@@ -174,6 +176,7 @@ export default function SaveButton(props) {
                           <FontAwesomeIcon icon={faFileDownload} />
                         </button>
                       </span>
+                      {patternName <=0 && <div className="floating-save-box-container-fields-save-patternempty">Field cannot be empty</div>}
                     </div>
                   )}
                 </div>

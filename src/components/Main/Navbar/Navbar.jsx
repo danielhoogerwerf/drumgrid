@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <nav>
       <div className="navbar-box">
-        <img src="/images/logo.png" className="navbar-logo-image" alt="logo" />
+        <img src="/images/drumgrid-logo.svg" className="navbar-logo-image" alt="drumgrid logo" />
         <span className="navbar-logo-text">drumgrid</span>
         <div className="navbar-text">
           <span className="navbar-link-padding">

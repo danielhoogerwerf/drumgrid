@@ -18,6 +18,11 @@
   color: #ffd059;
 }
 
+.navbar-profile-text-selected {
+  border-bottom: 2px solid #e4a400;
+}
+
+
 .navbar-profile-showcontentbox {
   display: inline-block;
   position: relative;
@@ -60,7 +65,6 @@
 
 .navbar-profile-showcontentbox-content-inside-pads {
   padding: 15px 0 0 10px;
-
 }
 
 .navbar-profile-showcontentbox-content-inside-pads-btnspan {
@@ -129,43 +133,6 @@
   font-size: 12px;
 }
 
-.navbar-profile-showcontentbox-content-inside-erroremailzz {
-  /* position: absolute;
-  background-color: khaki; */
-
-  /* layout */
-	position: absolute;
-	max-width: 30em;
-	
-	/* looks */
-	background-color: #fff;
-	padding: 1.125em 1.5em;
-	font-size: 1.25em;
-	border-radius: 1rem;
-  box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
-}
-
-.navbar-profile-showcontentbox-content-inside-erroremailzz::before {
-	/* layout */
-	content: '';
-	position: absolute;
-	width: 0;
-	height: 0;
-	bottom: 100%;
-  left: 1.5em; 
-  /* // offset should move with padding of parent */
-	border: .75rem solid transparent;
-	border-top: none;
-
-	/* looks */
-	border-bottom-color: #fff;
-	filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
-}
-
-
-
-
-
 .navbar-profile-showcontentbox-content-inside-normal input {
   background-color: rgba(71, 75, 73, 1);
   color: white;
@@ -198,6 +165,26 @@
   height: 24px;
 }
 
+.navbar-profile-showcontentbox-content-inside-button button:nth-child(2) {
+  position: absolute;
+  color: white;
+  left: 30px;
+  bottom: 16px;
+  width: 12px;
+  height: 12px;
+}
+
+.navbar-profile-showcontentbox-content-inside-button button:nth-child(2):hover {
+  color: #ffd059;
+  background-color: transparent;
+}
+
+.navbar-profile-showcontentbox-content-inside-button button:nth-child(2):active {
+  color: #e4a400;
+  background-color: transparent;
+  border: 0px;
+}
+
 .navbar-profile-showcontentbox-content-inside-close {
   position: relative;
   top: 0px;
@@ -227,4 +214,10 @@
   margin: 22px 0 0 9px;
   font-weight: 300;
   font-size: 12px;
+}
+
+.navbar-profile-showcontentbox-content-inside-erroremail {
+  position: absolute;
+  top: 8px;
+  color: #ff6958;
 }

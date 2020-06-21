@@ -29,10 +29,12 @@ export default function LoginBox(props) {
   const [forgotPassword, setForgotPassword] = useState();
   const [forgotPasswordOkay, setForgotPasswordOkay] = useState();
   const [loginError, setLoginError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const service = new AuthService();
 
   const handleLoginFormSubmit = (event) => {
     event.preventDefault();
+    setIsLoading(true);
     setWrongUserName(false);
     setWrongPassword(false);
     setLoginError("");
@@ -41,20 +43,22 @@ export default function LoginBox(props) {
     setPassword("");
 
     context.makeLogin(username, pwd).then((response) => {
-      console.log(response);
       if (!response.username) {
         if (response.message === "Missing credentials") {
           setWrongUserName(true);
           setWrongPassword(true);
           setLoginError(response.message);
+          setIsLoading(false);
         }
         if (response.message === "Username not found") {
           setWrongUserName(true);
           setLoginError(response.message);
+          setIsLoading(false);
         }
         if (response.message === "Password is incorrect") {
           setWrongPassword(true);
           setLoginError(response.message);
+          setIsLoading(false);
         }
       }
     });
@@ -82,9 +86,11 @@ export default function LoginBox(props) {
     }
 
     if (!error) {
+      setIsLoading(true);
       service
         .signup(username, password, email)
         .then((response) => {
+          setIsLoading(false);
           if (response.error === "The username already exists") {
             setWrongUserName("That name already exists");
             return;
@@ -102,6 +108,7 @@ export default function LoginBox(props) {
             setEmail("");
             setUsername("");
             setPassword("");
+            setIsLoading(false);
             setTimeout(() => {
               props.close(usr, pwd);
             }, 3000);
@@ -117,10 +124,12 @@ export default function LoginBox(props) {
   };
 
   const handleForgotPasswordFormSubmit = (event) => {
+    setIsLoading(true)
     setWrongEmail("Checking email address");
     event.preventDefault();
     if (email) {
       service.forgotPassword(email).then((res) => {
+        setIsLoading(false);
         if (res.error) {
           setWrongEmail(res.error);
         }
@@ -132,6 +141,7 @@ export default function LoginBox(props) {
         }
       });
     } else {
+      setIsLoading(false);
       setWrongEmail("Please fill something in");
     }
   };
@@ -211,7 +221,11 @@ export default function LoginBox(props) {
                   )}
                 </div>
                 <div className="loginbox-signup-container-inside-button">
-                  <button type="submit">SIGNUP</button>
+                  {isLoading ? (
+                    <div className="loginbox-loader-extra-padding-signup loader" />
+                  ) : (
+                    <button type="submit">SIGNUP</button>
+                  )}
                 </div>
               </div>
             </form>
@@ -270,7 +284,11 @@ export default function LoginBox(props) {
                           <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         )}
                         <div className="loginbox-signup-container-inside-button loginbox-password-reset-btn">
-                          <button type="submit">SEND</button>
+                          {isLoading ? (
+                            <div className="loginbox-loader-extra-padding-forgotpwd loader" />
+                          ) : (
+                            <button type="submit">SEND</button>
+                          )}
                         </div>
                       </div>
                     </form>
@@ -322,9 +340,13 @@ export default function LoginBox(props) {
                       FORGOT YOUR PASSWORD?
                     </div>
                     <div className="loginbox-form-submit">
-                      <button type="submit">
-                        <FontAwesomeIcon icon={faSignInAlt} />
-                      </button>
+                      {isLoading ? (
+                        <div className="loader" />
+                      ) : (
+                        <button type="submit">
+                          <FontAwesomeIcon icon={faSignInAlt} />
+                        </button>
+                      )}
                     </div>
                     <div className="loginbox-form-loginerror">{loginError}</div>
                   </form>

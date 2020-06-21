@@ -10,15 +10,19 @@
   flex-flow: column nowrap;
   width: 100%;
   height: 100%;
-  /* background-color: purple; */
 }
 
 .main-footer {
+  display: block;
   width: 100%;
   height: 1vh;
   background-color: #e4a400;
+  /* fix to allow this to be on top of the natural CSS order */
+  transform: rotate(180deg);
 }
 
 .main-section {
-    padding: 122px 0 0 77px;
+  display: flex;
+  justify-content: center;
+  padding: 122px 0 0 0;
 }

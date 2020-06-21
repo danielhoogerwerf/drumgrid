@@ -77,7 +77,13 @@ export default function MyPatterns() {
   return (
     <>
       <span className="navbar-mypatterns-text">
-        <button onClick={() => showPatternFrame()}>my patterns</button>
+        {showPatterns && gridContext.windowOpen === "patterns" ? (
+          <span className="navbar-mypatterns-text-selected">
+            <button onClick={() => showPatternFrame()}>my patterns</button>
+          </span>
+        ) : (
+          <button onClick={() => showPatternFrame()}>my patterns</button>
+        )}
         {showPatterns && gridContext.windowOpen === "patterns" && (
           <div className="navbar-mypatterns-showcontentbox">
             <div className="navbar-mypatterns-showcontentbox-content-inside">

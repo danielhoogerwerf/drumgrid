@@ -18,6 +18,10 @@
   color: #b998f5;
 }
 
+.navbar-mypatterns-text-selected {
+  border-bottom: 2px solid #9b70ec;
+}
+
 .navbar-mypatterns-showcontentbox {
   display: inline-block;
   position: relative;
@@ -80,7 +84,6 @@
   height: 17px;
   right: 14px;
   bottom: 7px;
-
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-overwrite {
@@ -161,15 +164,15 @@
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-patterns-tbox {
-display: inline-block;
-position: absolute;
+  display: inline-block;
+  position: absolute;
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-tooltip {
   display: inline-block;
 }
 
-.navbar-mypatterns-showcontentbox-content-inside-tooltip .tooltiptext  {
+.navbar-mypatterns-showcontentbox-content-inside-tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
   color: #fff;
@@ -177,7 +180,7 @@ position: absolute;
   border-radius: 2px;
   padding: 5px 0;
   background-color: #1c1d1d;
-  box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
 
   /* Position the tooltip */
   position: absolute;

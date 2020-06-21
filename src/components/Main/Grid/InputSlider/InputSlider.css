@@ -1,37 +1,40 @@
 .input-range__slider {
   appearance: none;
-  background: #C4C4C4;
-  border: 1px solid #C4C4C4;
+  background: #c4c4c4;
+  border: 1px solid #c4c4c4;
   border-radius: 100%;
   cursor: pointer;
   display: inline-block;
   height: 12px;
   margin-left: -0.5rem;
-  margin-top: -0.60rem;
+  margin-top: -0.6rem;
   outline: none;
   position: absolute;
   top: 50%;
   width: 12px;
-z-index: 1; }
+  z-index: 1;
+}
 
 .input-range__label--value {
   position: absolute;
   color: #6a706c;
   font-size: 1px;
-  top: -1.8rem; }
+  top: -1.8rem;
+}
 
 .input-range__label-container {
   left: -50%;
-  position: relative; }
+  position: relative;
+}
 
-  .input-range__label--min,
+.input-range__label--min,
 .input-range__label--max {
   bottom: 20px;
-  position: relative; }
-
+  position: relative;
+}
 
 .input-range__track {
-  background: #302E2E;
+  background: #302e2e;
   border-radius: 0.3rem;
   cursor: pointer;
   display: block;
@@ -44,10 +47,11 @@ z-index: 1; }
   margin-top: -0.15rem;
   position: absolute;
   right: 0;
-  top: 50%; }
-
+  top: 50%;
+}
 
 .input-range {
   height: 1rem;
   position: relative;
-  width: 100%; }
+  width: 100%;
+}

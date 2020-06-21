@@ -2,7 +2,8 @@
   /* background-color: sandybrown; */
   width: 100%;
   max-width: 1119px;
-  min-width: 745px;
+  /* min-width: 745px; */
+  min-width: 1119px;
 }
 
 .grid-line {
@@ -81,7 +82,7 @@
   text-align: center;
   border: 0px;
   outline: 0px;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .grid-block-tempo-lane {
@@ -202,7 +203,7 @@
   color: white;
   text-transform: uppercase;
   flex: 0 0 auto;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .grid-block-instrument-name-button {

@@ -24,7 +24,7 @@ export default class Main extends Component {
             </section>
           </div>
         </div>
-        <footer className="main-footer" />
+        <div className="main-footer" />
       </>
     );
   }

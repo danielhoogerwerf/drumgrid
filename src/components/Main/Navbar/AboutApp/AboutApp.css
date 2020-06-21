@@ -18,57 +18,86 @@
   color: #898f8b;
 }
 
+.navbar-aboutapp-text-selected {
+  border-bottom: 2px solid #b0b4b1;
+}
+
 .navbar-aboutapp-showcontentbox {
   display: inline-block;
-  position: relative;
+  /* position: relative; */
+}
+
+.navbar-aboutapp-showcontentbox-shell {
+  position: absolute;
+  box-sizing: border-box;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 81.5vh;
+  top: 120px;
+  z-index: 10;
+  background-color: #202222;
+  text-transform: none;
+  font-size: 12px;
+  padding: 50px 50px 0 50px;
 }
 
 .navbar-aboutapp-showcontentbox-content {
-  position: absolute;
-  right: 5px;
-  width: 400px;
-  max-height: 300px;
-  height: 300px;
-  top: 10px;
-  z-index: 11;
-  background-color: rgba(39, 45, 41, 0.90);
-  backdrop-filter: blur(2px);
-  text-transform: none;
-  font-size: 12px;
-  padding: 5px 10px;
-  outline: 1px dotted #e4a400;
-  outline-offset: 1px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+.navbar-aboutapp-showcontentbox-content-text {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 55%;
+  height: 100%;
+  padding-left: 50px;
+  font-size: 1.1em;
 }
 
 .navbar-aboutapp-showcontentbox-content button {
-  position: absolute;
-  right: 10px;
-  margin-bottom: 5px;
+  margin-top: 40px;
+  padding: 0;
+
 }
 
-.navbar-aboutapp-showcontentbox-content-version {
-  font-size: 8px;
-  text-align: left;
-  position: relative;
-  left: 0px;
-  bottom: 14px;
+.navbar-aboutapp-showcontentbox-content-flexlogos-box {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-.navbar-aboutapp-showcontentbox-content-textcenter {
+.navbar-aboutapp-showcontentbox-content-flexlogos {
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
   justify-content: center;
-  padding: 5px 5px;
+  align-items: center;
 }
 
-.navbar-aboutapp-showcontentbox-content-logo {
-  width: 20px;
-  padding-right: 5px;
+.navbar-aboutapp-showcontentbox-content-flexlogos-whiteborder {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  background-color: tranparent;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 3px;
 }
 
-.navbar-aboutapp-showcontentbox-content-ih {
-  width: 35px;
+.navbar-aboutapp-showcontentbox-content-flexlogos-whiteborder img {
+  width: 100%;
 }
 
 .navbar-aboutapp-showcontentbox-content-textborder {
@@ -76,22 +105,11 @@
   display: inline-block;
 }
 
-.navbar-aboutapp-showcontentbox-content-scrollbar {
-  overflow-y: auto;
-  scrollbar-color: #e4a400 #272d29;
-  scrollbar-width: thin;
+.navbar-aboutapp-showcontentbox-content-apptechnologies {
+  margin: 30px 0 20px 0;
 }
 
-.navbar-aboutapp-showcontentbox-content::-webkit-scrollbar {
-  width: 8px;
-  background-color: #272d29;
-}
-
-.navbar-aboutapp-showcontentbox-content::-webkit-scrollbar-thumb {
-  background-color: #e4a400;
-}
-
-.navbar-aboutapp-showcontentbox-content::-webkit-scrollbar-track {
-  background-color: #272d29;
+.navbar-aboutapp-showcontentbox-content-fattext {
+  font-weight: 600;
 }
 

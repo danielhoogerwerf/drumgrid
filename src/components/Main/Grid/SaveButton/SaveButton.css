@@ -68,7 +68,7 @@
 
   width: 100%;
   height: 20px;
-  background-color: #474B49;
+  background-color: #474b49;
   color: white;
   outline: 0;
   border: 0;
@@ -102,6 +102,16 @@
   color: #b998f5;
 }
 
+.floating-save-box-container-fields-save-patternempty {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  /* color: #ff6958; */
+  
+  font-size: 10px;
+  color: white;
+}
+
 .floating-save-box-container-fields-exists {
   display: flex;
   flex-flow: column nowrap;
@@ -110,7 +120,6 @@
   height: 100%;
   padding-left: 50px;
 }
-
 
 .floating-save-box-container-fields-error {
   font-weight: 600;
@@ -151,27 +160,14 @@
 
 .floating-save-box-container-saved-icon {
   font-size: 40px;
-  
+
   margin: 0;
 }
-
-/* .floating-save-box-container-saved button {
-  width: 70px;
-  height: 30px;
-  background-color: #592baf;
-  color: white;
-  outline: 0;
-  border: 0;
-  font-weight: 600;
-  position: absolute;
-  right: 20px;
-  bottom: 30px;
-  border-radius: 3px;
-} */
 
 .floating-save-box-container-patternerror {
   color: white;
   font-weight: 600;
+  padding-left: 20px;
 }
 
 .floating-save-box-container-patternerror-icon {
@@ -183,7 +179,7 @@
 .floating-save-box-container-patternerror p:first-of-type {
   width: 70%;
   margin: 0;
-  padding: 10px 0 0 8px;
+  padding: 10px 0 0 10px;
   font-weight: 400;
   font-size: 12px;
   text-align: left;
@@ -192,7 +188,7 @@
 .floating-save-box-container-patternerror p {
   width: 70%;
   margin: 0;
-  padding: 2px 0 0 8px;
+  padding: 2px 0 0 10px;
   font-weight: 400;
   font-size: 12px;
   text-align: left;

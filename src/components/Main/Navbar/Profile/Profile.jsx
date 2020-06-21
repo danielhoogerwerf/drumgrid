@@ -86,7 +86,17 @@ export default function Profile() {
   return (
     <span className="navbar-profile-text">
       {!context.appUser && <button onClick={() => showProfileFrame()}>login</button>}
-      {context.appUser && <button onClick={() => showProfileFrame()}>profile</button>}
+      {context.appUser && (
+        <>
+          {showProfile && gridContext.windowOpen === "profile" ? (
+            <span className="navbar-profile-text-selected">
+              <button onClick={() => showProfileFrame()}>profile</button>
+            </span>
+          ) : (
+            <button onClick={() => showProfileFrame()}>profile</button>
+          )}
+        </>
+      )}
       {showProfile && gridContext.windowOpen === "profile" && (
         <div className="navbar-profile-showcontentbox">
           <div className="navbar-profile-showcontentbox-content-inside">
@@ -118,7 +128,15 @@ export default function Profile() {
                                 {wrongEmail}
                               </div>
                             )}
-                            <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input
+                              type="email"
+                              name="email"
+                              value={email}
+                              onChange={(e) => {
+                                setEmail(e.target.value);
+                                setWrongEmail(false);
+                              }}
+                            />
                           </>
                         )}
                       </span>
@@ -134,7 +152,18 @@ export default function Profile() {
                             EDIT
                           </button>
                         ) : (
-                          <button type="submit">UPDATE</button>
+                          <>
+                            <button type="submit">UPDATE</button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setEmail(context.appUser.email);
+                                setEditEmail(false);
+                              }}
+                            >
+                              <FontAwesomeIcon icon={faTimes} />
+                            </button>
+                          </>
                         )}
                       </span>
                     </div>
@@ -170,8 +199,21 @@ export default function Profile() {
                           >
                             EDIT
                           </button>
+                        ) : password.length <= 0 ? (
+                          <button>CANCEL</button>
                         ) : (
-                          <button>UPDATE</button>
+                          <>
+                            <button>UPDATE</button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setPassword("");
+                                setEditPassword(false);
+                              }}
+                            >
+                              <FontAwesomeIcon icon={faTimes} />
+                            </button>
+                          </>
                         )}
                       </span>
                     </div>
