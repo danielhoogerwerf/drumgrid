@@ -91,8 +91,9 @@ export default class Grid extends Component {
   clearGrid = () => {
     Tone.Transport.cancel();
     let newArr = this.state.gridData;
-    newArr[0].grid = JSON.parse(JSON.stringify(gridInitData[0].grid));
-    this.setState({ gridData: newArr });
+    newArr[0] = JSON.parse(JSON.stringify(gridInitData[0]));
+    const newTempo = newArr[0].options.tempo;
+    this.setState({ gridData: newArr, toneBPM: newTempo });
   };
 
   changeMainParameters = () => {

@@ -75,7 +75,7 @@
 .navbar-profile-showcontentbox-content-inside-pads button {
   position: absolute;
   background-color: transparent;
-  right: 30px;
+  right: 22px;
   bottom: 5px;
 }
 
@@ -214,6 +214,10 @@
   margin: 22px 0 0 9px;
   font-weight: 300;
   font-size: 12px;
+}
+
+.navbar-profile-showcontentbox-content-inside-username-strong {
+  font-weight: 500;
 }
 
 .navbar-profile-showcontentbox-content-inside-erroremail {

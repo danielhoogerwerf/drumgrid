@@ -24,6 +24,15 @@ export default function SaveButton(props) {
   const saveButton = (e) => {
     e.preventDefault();
     gridContext.openSingleWindow("save");
+    setSaveSuccessful(false);
+    setTooManyPatterns(false);
+    setPatternExists(false);
+    if (props.gridData[0].pattern === "Untitled Pattern") {
+      setPatternName("");
+    } else {
+      setPatternName(props.gridData[0].pattern);
+    }
+
     if (gridContext.windowOpen !== "save") {
       setshowFloatingBoxSave(true);
     } else {
@@ -68,7 +77,7 @@ export default function SaveButton(props) {
           sendData();
         }
       });
-    } 
+    }
   };
 
   const sendData = () => {
@@ -84,6 +93,7 @@ export default function SaveButton(props) {
           if (result.message === "OK") {
             setSaveSuccessful(true);
             setPatternExists(false);
+            props.updatename(cleanPatternName);
           }
         });
       } else {
@@ -140,7 +150,7 @@ export default function SaveButton(props) {
                         <FontAwesomeIcon icon={faExclamationTriangle} />
                       </div>
                       <p>Pattern already exists!</p>
-                      <p>Overwrite?</p>
+                      <p>Do you want to overwrite it?</p>
                       <span className="floating-save-box-container-fields-btnyes">
                         <button onClick={sendData}>
                           <FontAwesomeIcon icon={faCheck} />
@@ -173,7 +183,11 @@ export default function SaveButton(props) {
                           <FontAwesomeIcon icon={faFileDownload} />
                         </button>
                       </span>
-                      {patternName <=0 && <div className="floating-save-box-container-fields-save-patternempty">Field cannot be empty</div>}
+                      {patternName <= 0 && (
+                        <div className="floating-save-box-container-fields-save-patternempty">
+                          Field cannot be empty
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>

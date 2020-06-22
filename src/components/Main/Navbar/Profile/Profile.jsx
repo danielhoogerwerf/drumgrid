@@ -215,7 +215,10 @@ export default function Profile() {
                       </span>
                     </div>
                     <div className="navbar-profile-showcontentbox-content-inside-username">
-                      Current username: <strong>{context.appUser.username}</strong>
+                      Current username:{" "}
+                      <span className="navbar-profile-showcontentbox-content-inside-username-strong">
+                        {context.appUser.username}
+                      </span>
                     </div>
                   </form>
                   <button onClick={() => signOut()}>

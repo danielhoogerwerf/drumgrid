@@ -33,13 +33,11 @@ export const AuthContextProvider = (props) => {
       .then((response) => {
         if (response.message === "User logged out succesfully") {
           setAppUser(null);
-          console.log("logged out.");
         }
       })
       .catch((e) => console.log(e));
   };
 
-  // return <AuthContext.Provider value={[appUser, setAppUser]}>{props.children}</AuthContext.Provider>;
   return (
     <AuthContext.Provider value={{ appUser, makeLogin, checkLogin, logout }}>{props.children}</AuthContext.Provider>
   );
