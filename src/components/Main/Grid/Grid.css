@@ -4,6 +4,7 @@
   max-width: 1119px;
   /* min-width: 745px; */
   min-width: 1119px;
+  position: relative;
 }
 
 .grid-line {
@@ -236,8 +237,8 @@
 
 .grid-pianoroll-line {
   width: 3px;
-  position: fixed;
-  top: 281px;
+  position: absolute;
+  top: 60px;
   background-color: #ededed;
   z-index: 1;
 }

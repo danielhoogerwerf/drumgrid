@@ -111,7 +111,7 @@ export default class Grid extends Component {
     this.setState({
       transport: transportpos,
       gridData: this.state.gridData,
-      pianoBarLeft: 364 + ((this.state.pianoBarMaxWidth - 210) / 100) * transportprogress,
+      pianoBarLeft: 208 + ((this.state.pianoBarMaxWidth - 210) / 100) * transportprogress,
     });
   };
 
@@ -173,8 +173,6 @@ export default class Grid extends Component {
   };
 
   changeGridBlock = (stepValue, elemSound, elemMuted) => {
-    // Perform the changeover of the grid objects by updating the master array this.state.gridData
-
     const gridArray = this.state.gridData[0].grid;
     const findSoundNumber = gridArray.findIndex((x) => x.sound === elemSound);
     const findStepNumber = gridArray[findSoundNumber].steps.findIndex((y) => y.time === stepValue.time);

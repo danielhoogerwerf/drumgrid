@@ -34,9 +34,7 @@ export default function AboutApp() {
             <div className="navbar-aboutapp-showcontentbox-content fade-in-smalldelay">
               <div className="navbar-aboutapp-showcontentbox-content-flexlogos-box">
                 <div className="navbar-aboutapp-showcontentbox-content-apptechnologies">
-                  <p className="navbar-aboutapp-showcontentbox-content-fattext">
-                    This app is powered by these technologies
-                  </p>
+                  <p className="navbar-aboutapp-showcontentbox-content-fattext">This app is powered by</p>
                 </div>
                 <div className="navbar-aboutapp-showcontentbox-content-flexlogos">
                   <div className="navbar-aboutapp-showcontentbox-content-flexlogos-whiteborder">
@@ -103,36 +101,43 @@ export default function AboutApp() {
                 <br />
                 <p>
                   Click on the sound names to hear an example of the sound you want to program. Then just click on a
-                  square within the lane of the sound you want, and it will program the sound to play at that spot.
+                  square within the lane of the sound you want, and it will program the sound to play at that spot. Just
+                  click on the yellow square again to remove the sound to play at that time.
                 </p>
                 <br />
                 <p>
                   If you want to save your pattern, click on the SAVE button. You will need to login (or create an
-                  account) to save your pattern. The app will allow you to do that from there as well.
+                  account) to save your pattern. The app will allow you to do that from there as well. You can store up
+                  to 5 patterns in your account.
                 </p>
-                <p>You can store up to 5 patterns in your account.</p>
                 <br />
                 <p>
                   You can manage your saved patterns through MY PATTERNS, where you can load your saved pattern or
                   delete one.
+                  You can manage your profile via PROFILE where you can modify your email address or change your
+                  password.
                 </p>
                 <br />
                 <p>
-                  You can manage your profile via PROFILE where you can rename your account or change your password.
+                  {/* If you use bluetooth speakers or headphones, the sound seems to play later than what you see in the
+                  app.
+                  <br />
+                  This is because your operating system is compensating for the time the sound takes to travel to your
+                  bluetooth device, but your browser doesn't know this delay. Therefore the visual elements work with
+                  the 'un-delayed' timing, but the sound plays later. Nothing to worry about. */}
                 </p>
                 <br />
                 <p className="navbar-aboutapp-showcontentbox-content-textborder">THANKS</p>
                 <br />
                 <p>
                   I would like to thank everyone who was involved in making this app. This includes the fantastic
-                  teachers of the bootcamp (thanks Jorg, Lloyd & Rana!), my classmates who are all amazing coders too,
-                  my friends who helped me break this app enough times for it to work, and my wife Nadia who helped so
-                  much with everything, who is the most beautiful woman I've ever met, and who had to endure me and my
+                  teachers of the bootcamp (thanks Jorg, Lloyd & Rana!), my classmates who are all amazing coders, my
+                  friends who helped me break this app enough times for it to work, and my wife Nadia who helped so much
+                  with everything, who is the most beautiful woman I've ever met, and who had to endure me and my
                   code-speak during these past couple of months{" "}
                   <span role="img" aria-label="eyes closed">
                     🙈
                   </span>{" "}
-                  Te quiero mucho{" "}
                   <span role="img" aria-label="heart">
                     ❤️
                   </span>
