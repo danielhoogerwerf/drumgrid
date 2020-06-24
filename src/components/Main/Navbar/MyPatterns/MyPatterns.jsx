@@ -124,8 +124,8 @@ export default function MyPatterns() {
                     ) : currentPatterns.length === 0 ? (
                       <div className="navbar-mypatterns-showcontentbox-content-inside-empty">
                         You haven't saved any patterns yet.
-                        <br />
-                        <br />
+                        <span className="navbar-mypatterns-showcontentbox-content-inside-empty-br"></span>
+                        <span className="navbar-mypatterns-showcontentbox-content-inside-empty-br"></span>
                         <strong>Go make some music!</strong>
                       </div>
                     ) : (

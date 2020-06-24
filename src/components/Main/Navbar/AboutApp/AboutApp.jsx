@@ -94,41 +94,40 @@ export default function AboutApp() {
                 </div>
               </div>
               <div className="navbar-aboutapp-showcontentbox-content-text">
-                <br />
+                <span className="navbar-aboutapp-showcontentbox-content-br"></span>
                 <p>This app is a graduation project for the web development bootcamp from IronHack.</p>
-                <br />
+                <span className="navbar-aboutapp-showcontentbox-content-br"></span>
                 <p className="navbar-aboutapp-showcontentbox-content-textborder">MANUAL</p>
-                <br />
+                <span className="navbar-aboutapp-showcontentbox-content-br"></span>
                 <p>
                   Click on the sound names to hear an example of the sound you want to program. Then just click on a
                   square within the lane of the sound you want, and it will program the sound to play at that spot. Just
                   click on the yellow square again to remove the sound to play at that time.
                 </p>
-                <br />
+                <span className="navbar-aboutapp-showcontentbox-content-br"></span>
                 <p>
                   If you want to save your pattern, click on the SAVE button. You will need to login (or create an
                   account) to save your pattern. The app will allow you to do that from there as well. You can store up
                   to 5 patterns in your account.
                 </p>
-                <br />
+                <span className="navbar-aboutapp-showcontentbox-content-br"></span>
                 <p>
                   You can manage your saved patterns through MY PATTERNS, where you can load your saved pattern or
-                  delete one.
-                  You can manage your profile via PROFILE where you can modify your email address or change your
-                  password.
+                  delete one. You can manage your profile via PROFILE where you can modify your email address or change
+                  your password.
                 </p>
-                <br />
+                <span className="navbar-aboutapp-showcontentbox-content-br"></span>
                 <p>
                   {/* If you use bluetooth speakers or headphones, the sound seems to play later than what you see in the
                   app.
-                  <br />
+                  <span className="navbar-aboutapp-showcontentbox-content-br"></span>
                   This is because your operating system is compensating for the time the sound takes to travel to your
                   bluetooth device, but your browser doesn't know this delay. Therefore the visual elements work with
                   the 'un-delayed' timing, but the sound plays later. Nothing to worry about. */}
                 </p>
-                <br />
+                <span className="navbar-aboutapp-showcontentbox-content-br"></span>
                 <p className="navbar-aboutapp-showcontentbox-content-textborder">THANKS</p>
-                <br />
+                <span className="navbar-aboutapp-showcontentbox-content-br"></span>
                 <p>
                   I would like to thank everyone who was involved in making this app. This includes the fantastic
                   teachers of the bootcamp (thanks Jorg, Lloyd & Rana!), my classmates who are all amazing coders, my

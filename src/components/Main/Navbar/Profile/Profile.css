@@ -194,8 +194,12 @@
 
 .navbar-profile-showcontentbox-content-inside-close button:first-of-type {
   background-color: transparent;
-  height: 5px;
-  width: 10px;
+  /* height: 5px;
+  width: 10px; */
+  right: 7px;
+  bottom: -10px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .navbar-profile-showcontentbox-content-inside-close button:hover {

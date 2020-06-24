@@ -61,6 +61,10 @@
   font-size: 1.1em;
 }
 
+.navbar-aboutapp-showcontentbox-content-br {
+  margin-bottom: 16px;
+}
+
 .navbar-aboutapp-showcontentbox-content button {
   margin-top: 40px;
   padding: 0;

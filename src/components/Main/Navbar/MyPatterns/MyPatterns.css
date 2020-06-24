@@ -135,10 +135,13 @@
 
 .navbar-mypatterns-showcontentbox-content-inside-close button {
   position: absolute;
-  left: 380px;
+  right: 2px;
+  top: 0px;
+  margin: 0px;
   background-color: transparent;
-  height: 5px;
-  width: 10px;
+  /* height: 5px;
+  width: 10px; */
+  z-index: 5;
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-close button:hover {
@@ -163,10 +166,23 @@
   height: 100%;
 }
 
+.navbar-mypatterns-showcontentbox-content-inside-empty-br {
+  margin-bottom: 16px;
+}
+
 .navbar-mypatterns-showcontentbox-content-inside-patterns-tbox {
   display: inline-block;
   position: absolute;
+  right: 20px;
+  /* margin: -5px; */
+  box-sizing: border-box;
 }
+
+.navbar-mypatterns-showcontentbox-content-inside-patterns-tbox button {
+margin: 0 5px;
+padding: 0;
+}
+
 
 .navbar-mypatterns-showcontentbox-content-inside-tooltip {
   display: inline-block;
