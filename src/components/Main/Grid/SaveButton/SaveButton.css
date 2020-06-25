@@ -179,34 +179,35 @@
 .floating-save-box-container-patternerror {
   color: white;
   font-weight: 600;
-  padding-left: 20px;
+  padding-left: 65px;
 }
 
 .floating-save-box-container-patternerror-icon {
-  font-size: 20px;
-  padding: 0;
+  font-size: 30px;
+  padding: 0 0 5px 0px;
   margin: 0;
 }
 
 .floating-save-box-container-patternerror p:first-of-type {
   width: 70%;
   margin: 0;
-  padding: 10px 0 0 10px;
+  padding: 0px 0 0 15px;
+  padding-bottom: 5px;
   font-weight: 400;
   font-size: 12px;
-  text-align: left;
+  text-align: center;
 }
 
 .floating-save-box-container-patternerror p {
-  width: 70%;
+  width: 80%;
   margin: 0;
-  padding: 2px 0 0 10px;
+  padding: 2px 0 0 0px;
   font-weight: 400;
   font-size: 12px;
-  text-align: left;
+  text-align: center;
 }
 
 .floating-save-box-container-patternerror span {
   margin: 0;
-  padding: 0 0 0 10px;
+  padding: 0 0 0 5px;
 }

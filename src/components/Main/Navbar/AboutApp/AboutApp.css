@@ -123,3 +123,10 @@
 .navbar-aboutapp-showcontentbox-content-fattext {
   font-weight: 600;
 }
+
+.navbar-aboutapp-showcontentbox-content-close {
+  font-size: 20px;
+  position: absolute;
+  right: 88px;
+  top: 20px;
+}

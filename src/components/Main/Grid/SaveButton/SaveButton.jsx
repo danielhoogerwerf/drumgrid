@@ -114,6 +114,9 @@ export default function SaveButton(props) {
             setSaveSuccessful(true);
             setPatternExists(false);
             setTooManyPatterns(true);
+            setTimeout(() => {
+              closeFloatingSaveBoxCompleted();
+            }, 6000);
           }
         });
       }
@@ -158,14 +161,10 @@ export default function SaveButton(props) {
                       <p>Pattern already exists!</p>
                       <p>Do you want to overwrite it?</p>
                       <span className="floating-save-box-container-fields-btnyes">
-                        <button onClick={sendData}>
-                          YES
-                        </button>
+                        <button onClick={sendData}>YES</button>
                       </span>
                       <span className="floating-save-box-container-fields-btnno">
-                        <button onClick={() => setPatternExists(false)}>
-                          NO
-                        </button>
+                        <button onClick={() => setPatternExists(false)}>NO</button>
                       </span>
                     </div>
                   ) : (
@@ -199,15 +198,15 @@ export default function SaveButton(props) {
                 </div>
               ) : tooManyPatterns ? (
                 <div className="floating-save-box-container-patternerror floating-save-box-container-fields-save">
-                  <span className="floating-save-box-container-patternerror-icon">
-                    <FontAwesomeIcon icon={faExclamationTriangle} />
-                  </span>
+                  <p>
+                    <span className="floating-save-box-container-patternerror-icon">
+                      <FontAwesomeIcon icon={faExclamationTriangle} />
+                    </span>
+                  </p>
                   <span>Too many patterns stored in your account!</span>
-                  <p>A maximum of 5 patterns are allowed.</p>
-                  <p>You will need to delete a pattern in order to save a new one.</p>
-                  <button onClick={closeFloatingSaveBoxCompleted}>
-                    <FontAwesomeIcon icon={faCheck} />
-                  </button>
+                  <p>
+                    A maximum of 5 patterns are allowed. You will need to delete a pattern in order to save a new one.
+                  </p>
                 </div>
               ) : (
                 <div className="floating-save-box-container-saved">
@@ -215,7 +214,6 @@ export default function SaveButton(props) {
                     <FontAwesomeIcon icon={faCheck} />
                   </p>
                   <p>Pattern saved successfully!</p>
-                  {/* <button onClick={closeFloatingSaveBoxCompleted}>CLOSE</button> */}
                 </div>
               )}
             </div>

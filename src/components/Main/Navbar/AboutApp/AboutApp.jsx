@@ -5,6 +5,7 @@ import { GridContext } from "../../../../contexts/grid-context";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFontAwesomeFlag } from "@fortawesome/free-brands-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export default function AboutApp() {
   const [showAbout, setShowAbout] = useState(false);
@@ -94,6 +95,11 @@ export default function AboutApp() {
                 </div>
               </div>
               <div className="navbar-aboutapp-showcontentbox-content-text">
+                <div className="navbar-aboutapp-showcontentbox-content-close">
+                  <button onClick={() => showAboutFrame()}>
+                    <FontAwesomeIcon icon={faTimes} />
+                  </button>
+                </div>
                 <span className="navbar-aboutapp-showcontentbox-content-br"></span>
                 <p>This app is a graduation project for the web development bootcamp from IronHack.</p>
                 <span className="navbar-aboutapp-showcontentbox-content-br"></span>
@@ -142,7 +148,7 @@ export default function AboutApp() {
                   </span>
                 </p>
                 <p className="navbar-aboutapp-showcontentbox-content-fattext">
-                  <button onClick={() => showAboutFrame()}>CLOSE OVERLAY</button>
+                  {/* <button onClick={() => showAboutFrame()}>CLOSE OVERLAY</button> */}
                 </p>
               </div>
             </div>
