@@ -104,23 +104,27 @@
   border-radius: 3px;
   width: 60px;
   height: 30px;
-  font-size: 24px;
+  font-size: 14px;
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-overwrite-btnyes {
   position: absolute;
-  right: 20px;
-  top: 30px;
+  right: 40px;
+  top: 20px;
+  background-color: #592baf;
+  border-radius: 3px;
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-overwrite-btnno {
   position: absolute;
-  right: 20px;
-  top: 80px;
+  right: 40px;
+  top: 70px;
+  background-color: #592baf;
+  border-radius: 3px;
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-overwrite p {
-  padding-top: 15px;
+  padding-top: 5px;
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-overwrite-icon {
@@ -131,6 +135,8 @@
   font-weight: 600;
   font-size: 12px;
   text-align: center;
+  color: white;
+  width: 150px;
 }
 
 .navbar-mypatterns-showcontentbox-content-inside-close button {

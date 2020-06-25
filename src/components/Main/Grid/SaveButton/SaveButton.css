@@ -17,6 +17,7 @@
   border: 0px;
   outline: 0px;
   cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .floating-save-box {
@@ -94,6 +95,11 @@
   font-size: 34px;
 }
 
+.floating-save-box-container-fields-save button {
+  top: 40px;
+  height: 40px;
+}
+
 .floating-save-box-container-fields-save button:hover {
   color: #9b70ec;
 }
@@ -128,27 +134,33 @@
 }
 
 .floating-save-box-container-fields-btnyes button {
-  /* background-color: #592baf; */
+  background-color: #592baf;
   color: white;
   outline: 0;
   border: 0;
   font-weight: 600;
   position: absolute;
   right: 30px;
-  top: 20px;
+  top: 30px;
   border-radius: 3px;
+  font-size: 14px;
+  width: 60px;
+  height: 30px;
 }
 
 .floating-save-box-container-fields-btnno button {
-  /* background-color: #592baf; */
+  background-color: #592baf;
   color: white;
   outline: 0;
   border: 0;
   font-weight: 600;
   position: absolute;
   right: 30px;
-  bottom: 20px;
+  top: 70px;
   border-radius: 3px;
+  font-size: 14px;
+  width: 60px;
+  height: 30px;
 }
 
 .floating-save-box-container-saved {

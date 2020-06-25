@@ -201,7 +201,7 @@ export default function LoginBox(props) {
                   <span>
                     <FontAwesomeIcon icon={faUnlock} />
                   </span>
-                  Make up a password
+                  {typeof wrongPassword === "string" ? wrongPassword : "Make up a password"}
                   {wrongPassword ? (
                     <input
                       className="loginbox-form-warning"

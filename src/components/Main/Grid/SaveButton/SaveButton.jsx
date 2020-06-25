@@ -94,6 +94,9 @@ export default function SaveButton(props) {
             setSaveSuccessful(true);
             setPatternExists(false);
             props.updatename(cleanPatternName);
+            setTimeout(() => {
+              closeFloatingSaveBoxCompleted();
+            }, 2500);
           }
         });
       } else {
@@ -102,6 +105,9 @@ export default function SaveButton(props) {
             setSaveSuccessful(true);
             setPatternExists(false);
             props.updatename(cleanPatternName);
+            setTimeout(() => {
+              closeFloatingSaveBoxCompleted();
+            }, 2500);
           }
 
           if (result.error === "too many patterns already stored") {
@@ -153,12 +159,12 @@ export default function SaveButton(props) {
                       <p>Do you want to overwrite it?</p>
                       <span className="floating-save-box-container-fields-btnyes">
                         <button onClick={sendData}>
-                          <FontAwesomeIcon icon={faCheck} />
+                          YES
                         </button>
                       </span>
                       <span className="floating-save-box-container-fields-btnno">
                         <button onClick={() => setPatternExists(false)}>
-                          <FontAwesomeIcon icon={faTimes} />
+                          NO
                         </button>
                       </span>
                     </div>

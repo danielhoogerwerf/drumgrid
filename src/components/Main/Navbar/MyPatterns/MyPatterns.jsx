@@ -13,7 +13,6 @@ import {
   faUpload,
   faTrashAlt,
   faTimes,
-  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function MyPatterns() {
@@ -112,12 +111,12 @@ export default function MyPatterns() {
                         </p>
                         <span className="navbar-mypatterns-showcontentbox-content-inside-overwrite-btnyes">
                           <button onClick={() => delPattern(confirmDelete)}>
-                            <FontAwesomeIcon icon={faCheck} />
+                            YES
                           </button>
                         </span>
                         <span className="navbar-mypatterns-showcontentbox-content-inside-overwrite-btnno">
                           <button onClick={() => setConfirmDelete(false)}>
-                            <FontAwesomeIcon icon={faTimes} />
+                            NO
                           </button>
                         </span>
                       </div>
