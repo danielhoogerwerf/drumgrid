@@ -138,7 +138,7 @@ export default function MyPatterns() {
                               <span>
                                 <FontAwesomeIcon icon={faFileAudio} />
                               </span>
-                              <p>{elem.name.length > 29 ? `${elem.name.slice(0, 29)}...` : elem.name}</p>
+                                <p>{elem.name.length > 29 ? `${elem.name.slice(0, 29)}...` : elem.name}</p>
                               <div className="navbar-mypatterns-showcontentbox-content-inside-patterns-tbox">
                                 <div className="navbar-mypatterns-showcontentbox-content-inside-tooltip">
                                   <button onClick={() => loadPattern(elem.id)}>

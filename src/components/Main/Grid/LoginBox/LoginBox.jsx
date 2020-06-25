@@ -96,7 +96,7 @@ export default function LoginBox(props) {
             return;
           }
           if (response.error === "The email address already exists") {
-            setWrongEmail("Email is already used");
+            setWrongEmail("Email already registered");
             return;
           }
 

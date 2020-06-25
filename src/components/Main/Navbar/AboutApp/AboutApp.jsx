@@ -138,8 +138,8 @@ export default function AboutApp() {
                   I would like to thank everyone who was involved in making this app. This includes the fantastic
                   teachers of the bootcamp (thanks Jorg, Lloyd & Rana!), my classmates who are all amazing coders, my
                   friends who helped me break this app enough times for it to work, and my wife Nadia who helped so much
-                  with everything, who is the most beautiful woman I've ever met, and who had to endure me and my
-                  code-speak during these past couple of months{" "}
+                  with everything, who is the most beautiful woman I've ever met, and who had to tolerate me and my
+                  non-stop talking about code during these past couple of months{" "}
                   <span role="img" aria-label="eyes closed">
                     🙈
                   </span>{" "}
