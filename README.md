@@ -2,7 +2,7 @@
 
 # DRUMGRID | FRONTEND
 
-## `Introduction`
+### `Introduction`
 
 This app is a graduation project for the web development bootcamp from IronHack.
 
@@ -10,13 +10,9 @@ Because I am a music lover, I wanted to create a music drum machine application 
 
 [www.drumgrid.nl](https://www.drumgrid.nl)
 
-<br />
-
 ### `Frontend technologies` 
 React.js | Javascript ES6 | HTML5 | CSS3 | Tone.js | FontAwesome
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br />
 
 ### `React technologies used`
 State, props, functional components, class components, hooks, contexts and lifecycle management components in both class and functional components.
