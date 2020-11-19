@@ -12,11 +12,14 @@ import SaveButton from "./SaveButton/SaveButton";
 import InputRange from "react-input-range";
 import "./InputSlider/InputSlider.css";
 
-// Samples
-import C1 from "./Samples/kick.mp3";
-import D1 from "./Samples/clap.mp3";
-import E1 from "./Samples/closedhh.mp3";
-import F1 from "./Samples/openhh.mp3";
+// // // Samples
+import C1 from "./Samples/Audio/kick.mp3";
+import D1 from "./Samples/Audio/clap.mp3";
+import E1 from "./Samples/Audio/closedhh.mp3";
+import F1 from "./Samples/Audio/openhh.mp3";
+
+//Samples
+//import * as Sounds from "./Samples/Samples"
 
 // Font Awesome Icons
 import { faPlay, faPause, faClock, faChevronRight, faVolumeDown } from "@fortawesome/free-solid-svg-icons";
@@ -205,6 +208,7 @@ export default class Grid extends Component {
   };
 
   render() {
+    console.log(Sounds.C1)
     return (
       <>
         <div className="grid-container noselect">
