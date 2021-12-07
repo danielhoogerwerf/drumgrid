@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Main.css";
 import Navbar from "./Navbar/Navbar";
-import Grid from "./Grid/GridNew";
+import Grid from "./Grid/Grid";
 import { AuthContext } from "../../contexts/auth-context";
 
 export default class Main extends Component {

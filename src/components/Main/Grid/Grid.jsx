@@ -208,7 +208,6 @@ export default class Grid extends Component {
   };
 
   render() {
-    console.log(Sounds.C1)
     return (
       <>
         <div className="grid-container noselect">
