@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Main from "./components/Main/Main";
 
 export default class App extends Component {
@@ -8,9 +8,9 @@ export default class App extends Component {
     return (
       <>
         <div className="App">
-          <Switch>
-            <Route exact path="/" component={Main} />
-          </Switch>
+          <Routes>
+            <Route exact path="/" element={<Main />} />
+          </Routes>
         </div>
       </>
     );
